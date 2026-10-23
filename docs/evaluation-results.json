@@ -1,0 +1,86 @@
+{
+  "evaluation": "ATLAS deterministic synthetic fixture evaluation",
+  "real_llm_quality_evaluated": false,
+  "scenarios": [
+    {
+      "scenario": "funding_gap",
+      "status": "completed",
+      "outcome": "complete",
+      "expected_fields": 14,
+      "correct_fields": 14,
+      "false_positive_fields": 0,
+      "missing_fields": 0,
+      "report_claims": 14,
+      "citation_supported_claims": 14,
+      "unknown_fields": [],
+      "expected_unknowns": [],
+      "contradiction_true_positives": 0,
+      "contradiction_false_positives": 0,
+      "contradiction_false_negatives": 0,
+      "tool_calls": 2,
+      "fixture_provider_requests": 6,
+      "real_model_requests": 0,
+      "network_requests": 0
+    },
+    {
+      "scenario": "conflict",
+      "status": "completed",
+      "outcome": "partial",
+      "expected_fields": 12,
+      "correct_fields": 12,
+      "false_positive_fields": 0,
+      "missing_fields": 0,
+      "report_claims": 12,
+      "citation_supported_claims": 12,
+      "unknown_fields": [],
+      "expected_unknowns": [],
+      "contradiction_true_positives": 2,
+      "contradiction_false_positives": 0,
+      "contradiction_false_negatives": 0,
+      "tool_calls": 2,
+      "fixture_provider_requests": 6,
+      "real_model_requests": 0,
+      "network_requests": 0
+    },
+    {
+      "scenario": "insufficient",
+      "status": "completed",
+      "outcome": "partial",
+      "expected_fields": 9,
+      "correct_fields": 9,
+      "false_positive_fields": 0,
+      "missing_fields": 0,
+      "report_claims": 9,
+      "citation_supported_claims": 9,
+      "unknown_fields": [
+        "proof_of_funds"
+      ],
+      "expected_unknowns": [
+        "proof_of_funds"
+      ],
+      "contradiction_true_positives": 0,
+      "contradiction_false_positives": 0,
+      "contradiction_false_negatives": 0,
+      "tool_calls": 2,
+      "fixture_provider_requests": 6,
+      "real_model_requests": 0,
+      "network_requests": 0
+    }
+  ],
+  "aggregate": {
+    "workflow_completion_rate": 1.0,
+    "citation_support_rate": 1.0,
+    "labeled_field_accuracy": 1.0,
+    "false_positive_fields": 0,
+    "contradiction_true_positives": 2,
+    "contradiction_false_positives": 0,
+    "contradiction_false_negatives": 0,
+    "tool_calls": 6,
+    "real_model_requests": 0
+  },
+  "limitations": [
+    "Three tiny labeled synthetic scenarios, with deterministic fixture extraction.",
+    "Exact citation support is not semantic truth or a real-model accuracy benchmark.",
+    "Live model quality and real-site connectivity were not verified."
+  ]
+}

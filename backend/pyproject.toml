@@ -1,0 +1,31 @@
+[project]
+name = "atlas-opportunities"
+version = "0.1.0"
+description = "Provenance-first opportunity intelligence"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1", "uvicorn[standard]>=0.34,<1",
+  "sqlalchemy>=2.0,<3", "alembic>=1.14,<2", "pydantic-settings>=2.7,<3",
+  "pypdf>=6,<7", "python-multipart>=0.0.20,<1",
+  "langgraph>=1,<2", "httpx>=0.28,<1", "httpcore>=1,<2",
+  "beautifulsoup4>=4.13,<5", "dnspython>=2.7,<3"
+]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "httpx>=0.28,<1", "ruff>=0.11,<1", "mypy>=1.15,<2", "types-beautifulsoup4>=4.12"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.mypy]
+python_version = "3.11"
+check_untyped_defs = true
+disallow_untyped_defs = true
+plugins = ["pydantic.mypy"]
