@@ -4,6 +4,11 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from atlas.db import utc_iso, utcnow
+from atlas.research.intelligence import (
+    contextual_differences,
+    question_sufficiency,
+    temporal_warnings,
+)
 from atlas.research.models import (
     Contradiction,
     EvidenceSnippet,
@@ -78,6 +83,9 @@ def ledger(session: Session, run: ResearchRun) -> dict[str, Any]:
         "scopes": list(scopes.values()),
         "missing": missing,
         "contradictions": contradictions,
+        "question_assessments": question_sufficiency(plans, supported, list(scopes.values())),
+        "context_differences": contextual_differences(claims, documents),
+        "temporal_warnings": temporal_warnings(supported, run.created_at.date()),
     }
 
 
@@ -92,6 +100,7 @@ def build_report(session: Session, run: ResearchRun, reason: str) -> dict[str, A
             "state": c.state,
             "evidence_id": c.evidence_id,
             "scope_evidence_id": c.scope_evidence_id,
+            "semantic_assessment": c.semantic_assessment,
         }
         for c in data["supported"]
     ]
@@ -104,7 +113,12 @@ def build_report(session: Session, run: ResearchRun, reason: str) -> dict[str, A
         }
         for c in data["contradictions"]
     ]
-    adequate = bool(findings) and not data["missing"] and not conflicts
+    adequate = (
+        bool(findings)
+        and not data["missing"]
+        and not conflicts
+        and all(q["status"] == "supported" for q in data["question_assessments"])
+    )
     partial = not adequate or reason != "model_stop"
     if reason in ("cancelled", "interrupted", "provider_unavailable", "model_schema_error"):
         partial = True
@@ -117,7 +131,7 @@ def build_report(session: Session, run: ResearchRun, reason: str) -> dict[str, A
         + (
             "This is a partial report."
             if partial
-            else "Recorded completion criteria have evidence; review the original sources."
+            else "Required fields have evidence; human review of completion criteria is needed."
         )
     )
     return {
@@ -130,6 +144,14 @@ def build_report(session: Session, run: ResearchRun, reason: str) -> dict[str, A
         "findings": findings,
         "conflicts": conflicts,
         "unanswered_questions": data["missing"],
+        "question_assessments": data["question_assessments"],
+        "context_differences": data["context_differences"],
+        "temporal_warnings": data["temporal_warnings"],
+        "evidence_assessments": [
+            {"claim_id": c.id, "field": c.field, **c.semantic_assessment}
+            for c in data["claims"]
+            if c.semantic_assessment
+        ],
         "unverified_candidate_count": sum(c.state == "unverified" for c in data["claims"]),
         "recommended_next_investigations": [
             f"Check official evidence for {item['field'].replace('_', ' ')}"
@@ -175,6 +197,9 @@ def build_report(session: Session, run: ResearchRun, reason: str) -> dict[str, A
         "limitations": [
             "Source support means exact quotation and scope checks, not "
             "independent verification of truth or a complete eligibility assessment.",
+            "Semantic labels use conservative English rules over bounded source context; "
+            "they are not independently annotated entailment judgments. Question sufficiency "
+            "checks field coverage, not arbitrary natural-language completion criteria.",
             "Only explicit domain scope is allowed. Official ownership is "
             "asserted by the user, not authenticated by ATLAS.",
             "Corroboration requires caller-declared independent source groups and "

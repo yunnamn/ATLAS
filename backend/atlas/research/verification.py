@@ -17,11 +17,19 @@ from atlas.research.models import (
     ResearchRun,
     SourceDocument,
 )
+from atlas.research.semantics import (
+    assess_support,
+    context_scope_valid,
+    requested_year,
+    scope_relation,
+)
 
 SUPPORTED = {"source_supported", "corroborated", "contradictory"}
 
 
 def exact_span(text: str, quote: str, start: int | None = None) -> tuple[int, int] | None:
+    if not quote or (start is not None and start < 0):
+        return None
     if start is not None:
         return (start, start + len(quote)) if text[start : start + len(quote)] == quote else None
     first = text.find(quote)
@@ -91,44 +99,50 @@ def verify_claims(session: Session, run: ResearchRun) -> dict[str, int]:
             claim.scope.get("intake_year") is None
             or str(claim.scope["intake_year"]) in claim.proposed_scope_quote
         )
-        qualifiers = set(
-            re.findall(
-                r"\b(?:no|not|never|without|except|unless|only|may|might|conditional|"
-                r"subject to|provided that)\b",
-                claim.proposed_quote.casefold(),
-            )
+        scope_ok = bool(scope and scope_ok) and all(
+            not claim.scope.get(key) or claim.scope[key] in claim.proposed_scope_quote
+            for key in ("award_track", "applicant_group", "source_version")
         )
-        missing_qualifier = any(
-            not re.search(r"\b" + re.escape(q) + r"\b", claim.value.casefold()) for q in qualifiers
+        scope_ok = scope_ok and context_scope_valid(doc.text, support, claim.scope)
+        assessment = assess_support(
+            claim.field,
+            claim.value,
+            claim.proposed_quote,
+            doc.text,
+            support,
+            scope_ok,
+            claim.scope,
+            requested_year(run.objective, run.request.get("target_intake_year")),
         )
-        if (
-            not support
-            or not scope
-            or not scope_ok
-            or claim.value not in claim.proposed_quote
-            or missing_qualifier
-        ):
-            claim.verification_note = (
-                "Quote/value/scope did not resolve to unambiguous exact source spans"
-            )
+        claim.semantic_assessment = assessment
+        # Preserve valid spans even when the meaning fails screening; never conflate the two.
+        if support:
+            claim.evidence_id = snippet(session, claim, doc, support, "support").id
+        if scope:
+            claim.scope_evidence_id = snippet(session, claim, doc, scope, "scope").id
+        claim.verification_note = assessment["reason"] + ": " + assessment["resolution"]
+        if assessment["label"] != "fully_supported":
             continue
-        claim.evidence_id = snippet(session, claim, doc, support, "support").id
-        claim.scope_evidence_id = snippet(session, claim, doc, scope, "scope").id
         claim.state = "source_supported"
         claim.normalized_value = canonical(claim.field, claim.value)
-        claim.verification_note = (
-            "Exact support and scope spans checked; semantic truth needs source review"
-        )
     session.flush()
-    supported = [c for c in claims if c.evidence_id]
+    supported = [c for c in claims if c.state in SUPPORTED]
     groups = run.request.get("source_groups", {})
     for left, right in combinations(supported, 2):
         # Do not compare different intakes, unscoped claims or different programs.
-        if (
-            left.field != right.field
-            or left.scope != right.scope
-            or not left.scope.get("intake_year")
-        ):
+        if left.field != right.field:
+            continue
+        doc_a, doc_b = (
+            session.get(SourceDocument, left.document_id),
+            session.get(SourceDocument, right.document_id),
+        )
+        assert doc_a and doc_b
+        relation = scope_relation(
+            left.scope,
+            right.scope,
+            same_url_version_change=doc_a.url == doc_b.url and doc_a.sha256 != doc_b.sha256,
+        )
+        if relation != "same_scope":
             continue
         a, b = left.normalized_value, right.normalized_value
         if a is not None and b is not None and a != b:
@@ -154,11 +168,6 @@ def verify_claims(session: Session, run: ResearchRun) -> dict[str, int]:
                 )
             left.state = right.state = "contradictory"
         elif (a is not None and a == b) or left.value == right.value:
-            doc_a, doc_b = (
-                session.get(SourceDocument, left.document_id),
-                session.get(SourceDocument, right.document_id),
-            )
-            assert doc_a and doc_b
             group_a, group_b = (
                 groups.get(urlsplit(doc_a.url).hostname),
                 groups.get(urlsplit(doc_b.url).hostname),

@@ -47,10 +47,31 @@ export interface ResearchClaim {
   field: string
   value: string
   state: string
-  scope: { program: string; intake_year: number | null }
+  scope: {
+    program: string
+    intake_year: number | null
+    award_track?: string | null
+    applicant_group?: string | null
+    source_version?: string | null
+  }
   evidence_id: string | null
   scope_evidence_id: string | null
   verification_note: string
+  semantic_assessment?: SupportAssessment
+}
+export interface SupportAssessment {
+  label?: string
+  method?: string
+  reason?: string
+  resolution?: string
+  passage?: string
+}
+export interface QuestionAssessment {
+  question_id: string
+  question: string
+  status: string
+  scope: ResearchClaim['scope'] | null
+  fields: { field: string; status: string; resolution: string }[]
 }
 export interface ResearchDocument {
   id: string
@@ -94,6 +115,9 @@ export interface ResearchReport {
   unanswered_questions: ResearchEvidence['unknowns']
   recommended_next_investigations: string[]
   limitations: string[]
+  question_assessments?: QuestionAssessment[]
+  context_differences?: { field: string; relation: string; resolution: string }[]
+  temporal_warnings?: { claim_id: string; value: string; warning: string; as_of_date: string }[]
   run_metadata: {
     stop_reason: string
     stats: Record<string, number>

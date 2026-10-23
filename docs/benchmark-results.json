@@ -1,0 +1,4758 @@
+{
+  "experiment": "frozen_corpus_abc",
+  "synthetic": true,
+  "real_model_quality_evaluated": false,
+  "provenance": "Tiny deterministic engineering controls, not real AI quality.",
+  "corpus_manifest_sha256": "0f7650bdb5be648068da204247fe7f3244637af710b3fc3e33a23923f60381ca",
+  "source_versions": [
+    {
+      "case": "funding_gap",
+      "documents": [
+        {
+          "id": "program",
+          "url": "https://lumen.atlas.invalid/program",
+          "path": "program.html",
+          "sha256": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+          "media_type": "text/html",
+          "retrieved_at": "bundled synthetic fixture; no retrieval",
+          "source_owner": "ATLAS synthetic fixture",
+          "reuse_note": "Project fixture under repository license"
+        },
+        {
+          "id": "award",
+          "url": "https://fund.atlas.invalid/award",
+          "path": "award.html",
+          "sha256": "0fb7f286be7f7ec46177fb389bfde38adc70c59308262d0996ff8c67f59cf156",
+          "media_type": "text/html",
+          "retrieved_at": "bundled synthetic fixture; no retrieval",
+          "source_owner": "ATLAS synthetic fixture",
+          "reuse_note": "Project fixture under repository license"
+        }
+      ],
+      "annotation_status": "author_labeled"
+    },
+    {
+      "case": "conflict",
+      "documents": [
+        {
+          "id": "program",
+          "url": "https://lumen.atlas.invalid/program",
+          "path": "program.html",
+          "sha256": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+          "media_type": "text/html",
+          "retrieved_at": "bundled synthetic fixture; no retrieval",
+          "source_owner": "ATLAS synthetic fixture",
+          "reuse_note": "Project fixture under repository license"
+        },
+        {
+          "id": "award",
+          "url": "https://fund.atlas.invalid/award",
+          "path": "conflict.html",
+          "sha256": "7be8f4083bb4c0de23d708507f32a40190b8466ec738a1e74438bb5202efa9e2",
+          "media_type": "text/html",
+          "retrieved_at": "bundled synthetic fixture; no retrieval",
+          "source_owner": "ATLAS synthetic fixture",
+          "reuse_note": "Project fixture under repository license"
+        }
+      ],
+      "annotation_status": "author_labeled"
+    },
+    {
+      "case": "insufficient",
+      "documents": [
+        {
+          "id": "program",
+          "url": "https://lumen.atlas.invalid/program",
+          "path": "program.html",
+          "sha256": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+          "media_type": "text/html",
+          "retrieved_at": "bundled synthetic fixture; no retrieval",
+          "source_owner": "ATLAS synthetic fixture",
+          "reuse_note": "Project fixture under repository license"
+        },
+        {
+          "id": "award",
+          "url": "https://fund.atlas.invalid/award",
+          "path": "insufficient.html",
+          "sha256": "c97a81a2f310f2642055d6a06ca7290dcd10d453ba4b0bc3d845b7efce867f24",
+          "media_type": "text/html",
+          "retrieved_at": "bundled synthetic fixture; no retrieval",
+          "source_owner": "ATLAS synthetic fixture",
+          "reuse_note": "Project fixture under repository license"
+        }
+      ],
+      "annotation_status": "author_labeled"
+    }
+  ],
+  "software_versions": {
+    "langgraph": "1.2.16",
+    "httpx": "0.28.1",
+    "pydantic": "2.14.1"
+  },
+  "cost_basis_usd_per_million": {
+    "input": null,
+    "output": null
+  },
+  "generated_at": "2026-10-23T10:14:08.707317+00:00",
+  "model": "deterministic_fixture_provider",
+  "settings": {
+    "temperature": 0,
+    "json_mode": "json_schema",
+    "max_output_tokens_per_request": 1800
+  },
+  "results": [
+    {
+      "case": "funding_gap",
+      "approach": "A_direct",
+      "status": "completed",
+      "outcome": "partial",
+      "stop_reason": "model_stop",
+      "annotation_status": "author_labeled",
+      "quality_scores_available": true,
+      "metrics": {
+        "claims_emitted": 9,
+        "exact_span_validity": 1.0,
+        "extraction_precision": 1.0,
+        "extraction_recall": 0.6428571428571429,
+        "citation_correctness": 1.0,
+        "unsupported_claim_rate": 0.0,
+        "missing_information_f1": 0.0,
+        "contradiction_precision": null,
+        "contradiction_recall": null,
+        "research_completeness": 0.6428571428571429,
+        "task_success": false,
+        "failure_analysis": [
+          {
+            "kind": "missing_reference_claim",
+            "document": "https://fund.atlas.invalid/award",
+            "field": "application_fee"
+          },
+          {
+            "kind": "missing_reference_claim",
+            "document": "https://fund.atlas.invalid/award",
+            "field": "deadline"
+          },
+          {
+            "kind": "missing_reference_claim",
+            "document": "https://fund.atlas.invalid/award",
+            "field": "proof_of_funds"
+          },
+          {
+            "kind": "missing_reference_claim",
+            "document": "https://fund.atlas.invalid/award",
+            "field": "scholarship_obligations"
+          },
+          {
+            "kind": "missing_reference_claim",
+            "document": "https://fund.atlas.invalid/award",
+            "field": "tuition_funding"
+          }
+        ],
+        "correct_claims": 9,
+        "reference_claims": 14,
+        "raw_extraction_precision": 1.0,
+        "raw_extraction_recall": 0.6428571428571429
+      },
+      "tool_calls": 1,
+      "provider_requests": 1,
+      "actual_model_requests": 0,
+      "latency_seconds": 0.0661,
+      "input_tokens": null,
+      "output_tokens": null,
+      "usage_complete": null,
+      "estimated_model_cost_usd": 0.0,
+      "source_failures": 0,
+      "invalid_provider_responses": 0,
+      "partial_findings_retained": 9,
+      "unverified_candidates": 0,
+      "candidate_support_labels": [
+        {
+          "field": "institution",
+          "label": "fully_supported"
+        },
+        {
+          "field": "program",
+          "label": "fully_supported"
+        },
+        {
+          "field": "degree",
+          "label": "fully_supported"
+        },
+        {
+          "field": "intake_year",
+          "label": "fully_supported"
+        },
+        {
+          "field": "tuition_funding",
+          "label": "fully_supported"
+        },
+        {
+          "field": "living_stipend",
+          "label": "fully_supported"
+        },
+        {
+          "field": "deadline",
+          "label": "fully_supported"
+        },
+        {
+          "field": "language",
+          "label": "fully_supported"
+        },
+        {
+          "field": "eligibility",
+          "label": "fully_supported"
+        }
+      ],
+      "failure_recovery_experiment": "not injected; see regression tests",
+      "plan_revisions": 1,
+      "run_limits": {
+        "max_iterations": 10,
+        "max_documents": 8,
+        "max_tool_calls": 10,
+        "max_network_requests": 24,
+        "max_model_requests": 24,
+        "max_output_tokens": 24000,
+        "max_input_bytes": 240000,
+        "max_seconds": 180
+      },
+      "predictions": [
+        {
+          "field": "institution",
+          "value": "Lumen Institute",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "f199c91d-0568-4b06-b311-fbfde232191b",
+            "document_id": "a40904e2-a761-4815-8719-8c440a0d0b02",
+            "quote": "Institution: Lumen Institute",
+            "start": 121,
+            "end": 149,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "e5f5e7f0-77e2-43e5-96c6-c265a1db231b",
+            "document_id": "a40904e2-a761-4815-8719-8c440a0d0b02",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "program",
+          "value": "Lumen AI Master's",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "26bed2ca-bbc2-4709-9d28-26c22321ac92",
+            "document_id": "a40904e2-a761-4815-8719-8c440a0d0b02",
+            "quote": "Program: Lumen AI Master's",
+            "start": 150,
+            "end": 176,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "89ff440e-8db8-42da-b33f-a40fef2cce53",
+            "document_id": "a40904e2-a761-4815-8719-8c440a0d0b02",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "degree",
+          "value": "Master of Science",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "c389b9e6-d7a9-4c63-a888-5861cd9257f1",
+            "document_id": "a40904e2-a761-4815-8719-8c440a0d0b02",
+            "quote": "Degree: Master of Science",
+            "start": 177,
+            "end": 202,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "9bdd0418-18c9-4d2d-8184-40e1439ffcba",
+            "document_id": "a40904e2-a761-4815-8719-8c440a0d0b02",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "intake_year",
+          "value": "2027",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "089b5772-dce4-4665-afba-c6960c2ec79c",
+            "document_id": "a40904e2-a761-4815-8719-8c440a0d0b02",
+            "quote": "Intake year: 2027",
+            "start": 203,
+            "end": 220,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "f43755d4-446a-4a40-966e-f6617dec32c6",
+            "document_id": "a40904e2-a761-4815-8719-8c440a0d0b02",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "tuition_funding",
+          "value": "full tuition",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "a72bfe52-5c9d-42f2-8bcc-b63191d65681",
+            "document_id": "a40904e2-a761-4815-8719-8c440a0d0b02",
+            "quote": "Tuition funding: full tuition",
+            "start": 221,
+            "end": 250,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "867252f5-f789-4a8a-bb03-7a416fe56ab9",
+            "document_id": "a40904e2-a761-4815-8719-8c440a0d0b02",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "living_stipend",
+          "value": "monthly living allowance of KRW 900,000",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "176b42cc-a65e-43de-9126-26530799a4a6",
+            "document_id": "a40904e2-a761-4815-8719-8c440a0d0b02",
+            "quote": "Living stipend: monthly living allowance of KRW 900,000",
+            "start": 251,
+            "end": 306,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "39f62c83-671c-4f6f-8de6-892ba19c77dc",
+            "document_id": "a40904e2-a761-4815-8719-8c440a0d0b02",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "deadline",
+          "value": "2027-02-15",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "65c7ad84-ba3e-4350-a9b2-87276952e7b8",
+            "document_id": "a40904e2-a761-4815-8719-8c440a0d0b02",
+            "quote": "Application deadline: 2027-02-15",
+            "start": 307,
+            "end": 339,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "a4b48e70-2e88-4415-99e1-f962f6ef5dc9",
+            "document_id": "a40904e2-a761-4815-8719-8c440a0d0b02",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "language",
+          "value": "English, IELTS 6.5",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "4ccc1631-e03f-452c-b53f-16121432b730",
+            "document_id": "a40904e2-a761-4815-8719-8c440a0d0b02",
+            "quote": "Language: English, IELTS 6.5",
+            "start": 340,
+            "end": 368,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "1ac8fee1-50b4-4c30-af23-5cc62d2043de",
+            "document_id": "a40904e2-a761-4815-8719-8c440a0d0b02",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "eligibility",
+          "value": "international applicants with a bachelor's degree",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "46c26e6b-cecf-4e6a-a289-d8be09b271d2",
+            "document_id": "a40904e2-a761-4815-8719-8c440a0d0b02",
+            "quote": "Eligibility: international applicants with a bachelor's degree",
+            "start": 369,
+            "end": 431,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "bcc641ae-7710-4b8c-abaa-6d293c05f4fd",
+            "document_id": "a40904e2-a761-4815-8719-8c440a0d0b02",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        }
+      ],
+      "decision_trace": [
+        {
+          "summary": "Fixed document schedule without adaptive planning or search",
+          "action": "fetch",
+          "target_id": "fa1280a2-f763-4988-abc8-3714fe9b3eea",
+          "question_id": null,
+          "query": null,
+          "plan_revision": 1
+        },
+        {
+          "summary": "Fixed document schedule without adaptive planning or search",
+          "action": "stop",
+          "target_id": null,
+          "question_id": null,
+          "query": null,
+          "plan_revision": 1
+        }
+      ]
+    },
+    {
+      "case": "funding_gap",
+      "approach": "B_fixed_retrieval",
+      "status": "completed",
+      "outcome": "complete",
+      "stop_reason": "model_stop",
+      "annotation_status": "author_labeled",
+      "quality_scores_available": true,
+      "metrics": {
+        "claims_emitted": 14,
+        "exact_span_validity": 1.0,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "citation_correctness": 1.0,
+        "unsupported_claim_rate": 0.0,
+        "missing_information_f1": 1.0,
+        "contradiction_precision": null,
+        "contradiction_recall": null,
+        "research_completeness": 1.0,
+        "task_success": true,
+        "failure_analysis": [],
+        "correct_claims": 14,
+        "reference_claims": 14,
+        "raw_extraction_precision": 1.0,
+        "raw_extraction_recall": 1.0
+      },
+      "tool_calls": 2,
+      "provider_requests": 2,
+      "actual_model_requests": 0,
+      "latency_seconds": 0.0775,
+      "input_tokens": null,
+      "output_tokens": null,
+      "usage_complete": null,
+      "estimated_model_cost_usd": 0.0,
+      "source_failures": 0,
+      "invalid_provider_responses": 0,
+      "partial_findings_retained": 14,
+      "unverified_candidates": 0,
+      "candidate_support_labels": [
+        {
+          "field": "institution",
+          "label": "fully_supported"
+        },
+        {
+          "field": "program",
+          "label": "fully_supported"
+        },
+        {
+          "field": "degree",
+          "label": "fully_supported"
+        },
+        {
+          "field": "intake_year",
+          "label": "fully_supported"
+        },
+        {
+          "field": "tuition_funding",
+          "label": "fully_supported"
+        },
+        {
+          "field": "living_stipend",
+          "label": "fully_supported"
+        },
+        {
+          "field": "deadline",
+          "label": "fully_supported"
+        },
+        {
+          "field": "language",
+          "label": "fully_supported"
+        },
+        {
+          "field": "eligibility",
+          "label": "fully_supported"
+        },
+        {
+          "field": "tuition_funding",
+          "label": "fully_supported"
+        },
+        {
+          "field": "deadline",
+          "label": "fully_supported"
+        },
+        {
+          "field": "proof_of_funds",
+          "label": "fully_supported"
+        },
+        {
+          "field": "application_fee",
+          "label": "fully_supported"
+        },
+        {
+          "field": "scholarship_obligations",
+          "label": "fully_supported"
+        }
+      ],
+      "failure_recovery_experiment": "not injected; see regression tests",
+      "plan_revisions": 1,
+      "run_limits": {
+        "max_iterations": 10,
+        "max_documents": 8,
+        "max_tool_calls": 10,
+        "max_network_requests": 24,
+        "max_model_requests": 24,
+        "max_output_tokens": 24000,
+        "max_input_bytes": 240000,
+        "max_seconds": 180
+      },
+      "predictions": [
+        {
+          "field": "institution",
+          "value": "Lumen Institute",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "d293da36-7dab-4fa6-a1d2-52023db73971",
+            "document_id": "083a93ed-85ff-436b-8573-54ba7ca523d8",
+            "quote": "Institution: Lumen Institute",
+            "start": 121,
+            "end": 149,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "6a24f6be-beec-4305-a99d-3c339c4c2533",
+            "document_id": "083a93ed-85ff-436b-8573-54ba7ca523d8",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "program",
+          "value": "Lumen AI Master's",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "2157e01c-d30b-46ad-8a07-cef893414b0a",
+            "document_id": "083a93ed-85ff-436b-8573-54ba7ca523d8",
+            "quote": "Program: Lumen AI Master's",
+            "start": 150,
+            "end": 176,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "99046e50-f285-4550-926c-ea1fb059b9ce",
+            "document_id": "083a93ed-85ff-436b-8573-54ba7ca523d8",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "degree",
+          "value": "Master of Science",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "ff1344b8-1c10-463e-bba5-c8af18d3c4c6",
+            "document_id": "083a93ed-85ff-436b-8573-54ba7ca523d8",
+            "quote": "Degree: Master of Science",
+            "start": 177,
+            "end": 202,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "cb8524c6-8995-41e9-8a07-a2878364b939",
+            "document_id": "083a93ed-85ff-436b-8573-54ba7ca523d8",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "intake_year",
+          "value": "2027",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "cc732f3d-f3d0-442f-b778-962daee89127",
+            "document_id": "083a93ed-85ff-436b-8573-54ba7ca523d8",
+            "quote": "Intake year: 2027",
+            "start": 203,
+            "end": 220,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "afd9fac4-a3e0-4e3a-be45-1c1aed1f1b81",
+            "document_id": "083a93ed-85ff-436b-8573-54ba7ca523d8",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "tuition_funding",
+          "value": "full tuition",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "411322cc-3393-47eb-b147-1d9cd95e9f19",
+            "document_id": "083a93ed-85ff-436b-8573-54ba7ca523d8",
+            "quote": "Tuition funding: full tuition",
+            "start": 221,
+            "end": 250,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "81300f88-2fd6-4577-874d-837160570a2a",
+            "document_id": "083a93ed-85ff-436b-8573-54ba7ca523d8",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "living_stipend",
+          "value": "monthly living allowance of KRW 900,000",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "35c09cd3-657c-45c6-a64b-3c2e72ce9c2a",
+            "document_id": "083a93ed-85ff-436b-8573-54ba7ca523d8",
+            "quote": "Living stipend: monthly living allowance of KRW 900,000",
+            "start": 251,
+            "end": 306,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "d340bed5-959b-4474-b859-c35a3ae6820a",
+            "document_id": "083a93ed-85ff-436b-8573-54ba7ca523d8",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "deadline",
+          "value": "2027-02-15",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "0f205b8e-a7ae-4a16-8f84-0afee28f0d76",
+            "document_id": "083a93ed-85ff-436b-8573-54ba7ca523d8",
+            "quote": "Application deadline: 2027-02-15",
+            "start": 307,
+            "end": 339,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "c10caca6-f99d-4498-95be-13661f3f1e44",
+            "document_id": "083a93ed-85ff-436b-8573-54ba7ca523d8",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "language",
+          "value": "English, IELTS 6.5",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "1de14475-dcc2-4a6b-9bf2-a1c99c79fdb2",
+            "document_id": "083a93ed-85ff-436b-8573-54ba7ca523d8",
+            "quote": "Language: English, IELTS 6.5",
+            "start": 340,
+            "end": 368,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "6937d17a-b8b1-446d-a124-9666fc4db7da",
+            "document_id": "083a93ed-85ff-436b-8573-54ba7ca523d8",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "eligibility",
+          "value": "international applicants with a bachelor's degree",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "6b8c5a9f-d495-42b7-a366-6a358cc134db",
+            "document_id": "083a93ed-85ff-436b-8573-54ba7ca523d8",
+            "quote": "Eligibility: international applicants with a bachelor's degree",
+            "start": 369,
+            "end": 431,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "e0b59065-5a57-47f0-bb08-cbdb0ada0fd3",
+            "document_id": "083a93ed-85ff-436b-8573-54ba7ca523d8",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "tuition_funding",
+          "value": "full tuition",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "0805e475-1863-4743-b17a-dd4873ec84d6",
+            "document_id": "c84adc60-a1ce-48df-bc3e-207092775750",
+            "quote": "Tuition funding: full tuition",
+            "start": 128,
+            "end": 157,
+            "location": {},
+            "purpose": "support",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "0fb7f286be7f7ec46177fb389bfde38adc70c59308262d0996ff8c67f59cf156",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "7504ba7d-36ac-466b-accf-06cea083492b",
+            "document_id": "c84adc60-a1ce-48df-bc3e-207092775750",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 31,
+            "end": 55,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "0fb7f286be7f7ec46177fb389bfde38adc70c59308262d0996ff8c67f59cf156",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "deadline",
+          "value": "2027-02-15",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "2d42b485-18d6-42de-a10d-d47bded73108",
+            "document_id": "c84adc60-a1ce-48df-bc3e-207092775750",
+            "quote": "Application deadline: 2027-02-15",
+            "start": 158,
+            "end": 190,
+            "location": {},
+            "purpose": "support",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "0fb7f286be7f7ec46177fb389bfde38adc70c59308262d0996ff8c67f59cf156",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "44021a73-1479-4778-b319-9c2efb9ff6a4",
+            "document_id": "c84adc60-a1ce-48df-bc3e-207092775750",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 31,
+            "end": 55,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "0fb7f286be7f7ec46177fb389bfde38adc70c59308262d0996ff8c67f59cf156",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "proof_of_funds",
+          "value": "not required",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "95fa3e09-21e2-4a89-bbe7-af61b4963729",
+            "document_id": "c84adc60-a1ce-48df-bc3e-207092775750",
+            "quote": "Proof of funds: not required",
+            "start": 191,
+            "end": 219,
+            "location": {},
+            "purpose": "support",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "0fb7f286be7f7ec46177fb389bfde38adc70c59308262d0996ff8c67f59cf156",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "1adf8103-2fec-4654-aa2e-c3e8ccbee36f",
+            "document_id": "c84adc60-a1ce-48df-bc3e-207092775750",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 31,
+            "end": 55,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "0fb7f286be7f7ec46177fb389bfde38adc70c59308262d0996ff8c67f59cf156",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "application_fee",
+          "value": "0 KRW",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "7a7337eb-e613-4d7e-82d5-b45c7af09cc2",
+            "document_id": "c84adc60-a1ce-48df-bc3e-207092775750",
+            "quote": "Application fee: 0 KRW",
+            "start": 220,
+            "end": 242,
+            "location": {},
+            "purpose": "support",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "0fb7f286be7f7ec46177fb389bfde38adc70c59308262d0996ff8c67f59cf156",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "f92d2614-aab7-4c61-888b-0457319aaa99",
+            "document_id": "c84adc60-a1ce-48df-bc3e-207092775750",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 31,
+            "end": 55,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "0fb7f286be7f7ec46177fb389bfde38adc70c59308262d0996ff8c67f59cf156",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "scholarship_obligations",
+          "value": "annual academic progress review",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "72f8adf5-5bd2-4fa8-a933-06da9e8e9adb",
+            "document_id": "c84adc60-a1ce-48df-bc3e-207092775750",
+            "quote": "Scholarship obligations: annual academic progress review",
+            "start": 243,
+            "end": 299,
+            "location": {},
+            "purpose": "support",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "0fb7f286be7f7ec46177fb389bfde38adc70c59308262d0996ff8c67f59cf156",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "60a500ef-2ad5-4c52-8a93-81a42cbdf3c3",
+            "document_id": "c84adc60-a1ce-48df-bc3e-207092775750",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 31,
+            "end": 55,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "0fb7f286be7f7ec46177fb389bfde38adc70c59308262d0996ff8c67f59cf156",
+            "synthetic": true
+          }
+        }
+      ],
+      "decision_trace": [
+        {
+          "summary": "Fixed document schedule without adaptive planning or search",
+          "action": "fetch",
+          "target_id": "768f72b5-c2fc-4812-b4c2-0ac9232622c1",
+          "question_id": null,
+          "query": null,
+          "plan_revision": 1
+        },
+        {
+          "summary": "Fixed document schedule without adaptive planning or search",
+          "action": "fetch",
+          "target_id": "a46b9043-ee2e-4eb7-88da-5b15f1cc434a",
+          "question_id": null,
+          "query": null,
+          "plan_revision": 1
+        },
+        {
+          "summary": "Fixed document schedule without adaptive planning or search",
+          "action": "stop",
+          "target_id": null,
+          "question_id": null,
+          "query": null,
+          "plan_revision": 1
+        }
+      ]
+    },
+    {
+      "case": "funding_gap",
+      "approach": "C_adaptive",
+      "status": "completed",
+      "outcome": "complete",
+      "stop_reason": "model_stop",
+      "annotation_status": "author_labeled",
+      "quality_scores_available": true,
+      "metrics": {
+        "claims_emitted": 14,
+        "exact_span_validity": 1.0,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "citation_correctness": 1.0,
+        "unsupported_claim_rate": 0.0,
+        "missing_information_f1": 1.0,
+        "contradiction_precision": null,
+        "contradiction_recall": null,
+        "research_completeness": 1.0,
+        "task_success": true,
+        "failure_analysis": [],
+        "correct_claims": 14,
+        "reference_claims": 14,
+        "raw_extraction_precision": 1.0,
+        "raw_extraction_recall": 1.0
+      },
+      "tool_calls": 2,
+      "provider_requests": 6,
+      "actual_model_requests": 0,
+      "latency_seconds": 0.084,
+      "input_tokens": null,
+      "output_tokens": null,
+      "usage_complete": null,
+      "estimated_model_cost_usd": 0.0,
+      "source_failures": 0,
+      "invalid_provider_responses": 0,
+      "partial_findings_retained": 14,
+      "unverified_candidates": 0,
+      "candidate_support_labels": [
+        {
+          "field": "institution",
+          "label": "fully_supported"
+        },
+        {
+          "field": "program",
+          "label": "fully_supported"
+        },
+        {
+          "field": "degree",
+          "label": "fully_supported"
+        },
+        {
+          "field": "intake_year",
+          "label": "fully_supported"
+        },
+        {
+          "field": "tuition_funding",
+          "label": "fully_supported"
+        },
+        {
+          "field": "living_stipend",
+          "label": "fully_supported"
+        },
+        {
+          "field": "deadline",
+          "label": "fully_supported"
+        },
+        {
+          "field": "language",
+          "label": "fully_supported"
+        },
+        {
+          "field": "eligibility",
+          "label": "fully_supported"
+        },
+        {
+          "field": "tuition_funding",
+          "label": "fully_supported"
+        },
+        {
+          "field": "deadline",
+          "label": "fully_supported"
+        },
+        {
+          "field": "proof_of_funds",
+          "label": "fully_supported"
+        },
+        {
+          "field": "application_fee",
+          "label": "fully_supported"
+        },
+        {
+          "field": "scholarship_obligations",
+          "label": "fully_supported"
+        }
+      ],
+      "failure_recovery_experiment": "not injected; see regression tests",
+      "plan_revisions": 2,
+      "run_limits": {
+        "max_iterations": 10,
+        "max_documents": 8,
+        "max_tool_calls": 10,
+        "max_network_requests": 24,
+        "max_model_requests": 24,
+        "max_output_tokens": 24000,
+        "max_input_bytes": 240000,
+        "max_seconds": 180
+      },
+      "predictions": [
+        {
+          "field": "institution",
+          "value": "Lumen Institute",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "323991d5-ca9e-47e6-9080-df71f24c51db",
+            "document_id": "6246a271-89d6-47c3-b898-d0d06a9856af",
+            "quote": "Institution: Lumen Institute",
+            "start": 121,
+            "end": 149,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "bbfa2479-5d22-4e8c-b4b3-02410e331944",
+            "document_id": "6246a271-89d6-47c3-b898-d0d06a9856af",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "program",
+          "value": "Lumen AI Master's",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "c81492ea-b489-4624-a542-bed235ea9e07",
+            "document_id": "6246a271-89d6-47c3-b898-d0d06a9856af",
+            "quote": "Program: Lumen AI Master's",
+            "start": 150,
+            "end": 176,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "1f4a06be-a4b2-495e-99fa-24a89cf0d282",
+            "document_id": "6246a271-89d6-47c3-b898-d0d06a9856af",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "degree",
+          "value": "Master of Science",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "2d8826e4-6049-4ecb-acfb-9d00565587f9",
+            "document_id": "6246a271-89d6-47c3-b898-d0d06a9856af",
+            "quote": "Degree: Master of Science",
+            "start": 177,
+            "end": 202,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "8e743329-0684-4d0c-bd36-6fefadd0fd20",
+            "document_id": "6246a271-89d6-47c3-b898-d0d06a9856af",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "intake_year",
+          "value": "2027",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "03805ed0-7298-4b88-b6e7-c4f17d4a9d14",
+            "document_id": "6246a271-89d6-47c3-b898-d0d06a9856af",
+            "quote": "Intake year: 2027",
+            "start": 203,
+            "end": 220,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "28e185cb-0232-46f7-84a7-55e227f4eef6",
+            "document_id": "6246a271-89d6-47c3-b898-d0d06a9856af",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "tuition_funding",
+          "value": "full tuition",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "30227bb7-aed2-4f7a-8ac1-46301e921c35",
+            "document_id": "6246a271-89d6-47c3-b898-d0d06a9856af",
+            "quote": "Tuition funding: full tuition",
+            "start": 221,
+            "end": 250,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "b83b1b4b-266b-4a85-b813-b939d36f91f1",
+            "document_id": "6246a271-89d6-47c3-b898-d0d06a9856af",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "living_stipend",
+          "value": "monthly living allowance of KRW 900,000",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "1e94a707-0236-451c-b386-2244f68ba625",
+            "document_id": "6246a271-89d6-47c3-b898-d0d06a9856af",
+            "quote": "Living stipend: monthly living allowance of KRW 900,000",
+            "start": 251,
+            "end": 306,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "d804507d-c3a1-4473-aef8-7499211915ee",
+            "document_id": "6246a271-89d6-47c3-b898-d0d06a9856af",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "deadline",
+          "value": "2027-02-15",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "8a333863-dc76-4a5a-9c00-d0980156a663",
+            "document_id": "6246a271-89d6-47c3-b898-d0d06a9856af",
+            "quote": "Application deadline: 2027-02-15",
+            "start": 307,
+            "end": 339,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "e92ec95b-f157-493e-bb17-e5d500afef73",
+            "document_id": "6246a271-89d6-47c3-b898-d0d06a9856af",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "language",
+          "value": "English, IELTS 6.5",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "64a59dba-8d5e-458b-9527-6ed3ca9106df",
+            "document_id": "6246a271-89d6-47c3-b898-d0d06a9856af",
+            "quote": "Language: English, IELTS 6.5",
+            "start": 340,
+            "end": 368,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "64f009cf-fe4d-403e-a0a2-254328a1227f",
+            "document_id": "6246a271-89d6-47c3-b898-d0d06a9856af",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "eligibility",
+          "value": "international applicants with a bachelor's degree",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "48219b64-93fd-4642-a169-366223dd71e3",
+            "document_id": "6246a271-89d6-47c3-b898-d0d06a9856af",
+            "quote": "Eligibility: international applicants with a bachelor's degree",
+            "start": 369,
+            "end": 431,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "f27459ac-d4a7-48de-87cb-eb50540c912d",
+            "document_id": "6246a271-89d6-47c3-b898-d0d06a9856af",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "tuition_funding",
+          "value": "full tuition",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "9f290594-c0f5-4b59-9c76-4970bebdcc3e",
+            "document_id": "e742105e-c3b1-4355-bd6b-9b9744e0bb8f",
+            "quote": "Tuition funding: full tuition",
+            "start": 128,
+            "end": 157,
+            "location": {},
+            "purpose": "support",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "0fb7f286be7f7ec46177fb389bfde38adc70c59308262d0996ff8c67f59cf156",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "67ac6c77-2656-4111-a71c-dac8d958c5d2",
+            "document_id": "e742105e-c3b1-4355-bd6b-9b9744e0bb8f",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 31,
+            "end": 55,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "0fb7f286be7f7ec46177fb389bfde38adc70c59308262d0996ff8c67f59cf156",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "deadline",
+          "value": "2027-02-15",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "48155726-3b1d-4429-9f3f-3e7ce42a779f",
+            "document_id": "e742105e-c3b1-4355-bd6b-9b9744e0bb8f",
+            "quote": "Application deadline: 2027-02-15",
+            "start": 158,
+            "end": 190,
+            "location": {},
+            "purpose": "support",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "0fb7f286be7f7ec46177fb389bfde38adc70c59308262d0996ff8c67f59cf156",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "0b17f276-6e91-482e-b2aa-3036eaae11d1",
+            "document_id": "e742105e-c3b1-4355-bd6b-9b9744e0bb8f",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 31,
+            "end": 55,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "0fb7f286be7f7ec46177fb389bfde38adc70c59308262d0996ff8c67f59cf156",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "proof_of_funds",
+          "value": "not required",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "1ede5059-d981-4676-92ab-060d93ed4a3b",
+            "document_id": "e742105e-c3b1-4355-bd6b-9b9744e0bb8f",
+            "quote": "Proof of funds: not required",
+            "start": 191,
+            "end": 219,
+            "location": {},
+            "purpose": "support",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "0fb7f286be7f7ec46177fb389bfde38adc70c59308262d0996ff8c67f59cf156",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "af84458b-48f4-4b13-9bca-013c5cefdabe",
+            "document_id": "e742105e-c3b1-4355-bd6b-9b9744e0bb8f",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 31,
+            "end": 55,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "0fb7f286be7f7ec46177fb389bfde38adc70c59308262d0996ff8c67f59cf156",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "application_fee",
+          "value": "0 KRW",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "dc874467-b73e-45b0-827f-0a7c072e056b",
+            "document_id": "e742105e-c3b1-4355-bd6b-9b9744e0bb8f",
+            "quote": "Application fee: 0 KRW",
+            "start": 220,
+            "end": 242,
+            "location": {},
+            "purpose": "support",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "0fb7f286be7f7ec46177fb389bfde38adc70c59308262d0996ff8c67f59cf156",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "2b89eecd-eeff-4a39-af7e-cf77d4a4de45",
+            "document_id": "e742105e-c3b1-4355-bd6b-9b9744e0bb8f",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 31,
+            "end": 55,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "0fb7f286be7f7ec46177fb389bfde38adc70c59308262d0996ff8c67f59cf156",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "scholarship_obligations",
+          "value": "annual academic progress review",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "20bf6666-e7a7-4380-a84b-824751c02154",
+            "document_id": "e742105e-c3b1-4355-bd6b-9b9744e0bb8f",
+            "quote": "Scholarship obligations: annual academic progress review",
+            "start": 243,
+            "end": 299,
+            "location": {},
+            "purpose": "support",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "0fb7f286be7f7ec46177fb389bfde38adc70c59308262d0996ff8c67f59cf156",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "04fd5012-8dd3-426d-b619-d5a805872cc3",
+            "document_id": "e742105e-c3b1-4355-bd6b-9b9744e0bb8f",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 31,
+            "end": 55,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "0fb7f286be7f7ec46177fb389bfde38adc70c59308262d0996ff8c67f59cf156",
+            "synthetic": true
+          }
+        }
+      ],
+      "decision_trace": [
+        {
+          "summary": "Inspect the supplied synthetic program source first",
+          "action": "fetch",
+          "target_id": "efa2ba4c-5c17-4733-8a6a-6d7a347a454d",
+          "question_id": "q2",
+          "query": null,
+          "plan_revision": 1
+        },
+        {
+          "summary": "Inspect the linked financial handbook because proof-of-funds evidence is missing",
+          "action": "fetch",
+          "target_id": "335e4873-8965-4588-973f-12ddb94d3495",
+          "question_id": "q2",
+          "query": null,
+          "plan_revision": 2
+        },
+        {
+          "summary": "No further in-scope fixture sources remain; report supported findings, conflicts, and unanswered questions",
+          "action": "stop",
+          "target_id": null,
+          "question_id": null,
+          "query": null,
+          "plan_revision": 2
+        }
+      ]
+    },
+    {
+      "case": "conflict",
+      "approach": "A_direct",
+      "status": "completed",
+      "outcome": "partial",
+      "stop_reason": "model_stop",
+      "annotation_status": "author_labeled",
+      "quality_scores_available": true,
+      "metrics": {
+        "claims_emitted": 9,
+        "exact_span_validity": 1.0,
+        "extraction_precision": 1.0,
+        "extraction_recall": 0.75,
+        "citation_correctness": 1.0,
+        "unsupported_claim_rate": 0.0,
+        "missing_information_f1": 0.0,
+        "contradiction_precision": null,
+        "contradiction_recall": 0.0,
+        "research_completeness": 0.75,
+        "task_success": false,
+        "failure_analysis": [
+          {
+            "kind": "missing_reference_claim",
+            "document": "https://fund.atlas.invalid/award",
+            "field": "deadline"
+          },
+          {
+            "kind": "missing_reference_claim",
+            "document": "https://fund.atlas.invalid/award",
+            "field": "proof_of_funds"
+          },
+          {
+            "kind": "missing_reference_claim",
+            "document": "https://fund.atlas.invalid/award",
+            "field": "tuition_funding"
+          }
+        ],
+        "correct_claims": 9,
+        "reference_claims": 12,
+        "raw_extraction_precision": 1.0,
+        "raw_extraction_recall": 0.75
+      },
+      "tool_calls": 1,
+      "provider_requests": 1,
+      "actual_model_requests": 0,
+      "latency_seconds": 0.0557,
+      "input_tokens": null,
+      "output_tokens": null,
+      "usage_complete": null,
+      "estimated_model_cost_usd": 0.0,
+      "source_failures": 0,
+      "invalid_provider_responses": 0,
+      "partial_findings_retained": 9,
+      "unverified_candidates": 0,
+      "candidate_support_labels": [
+        {
+          "field": "institution",
+          "label": "fully_supported"
+        },
+        {
+          "field": "program",
+          "label": "fully_supported"
+        },
+        {
+          "field": "degree",
+          "label": "fully_supported"
+        },
+        {
+          "field": "intake_year",
+          "label": "fully_supported"
+        },
+        {
+          "field": "tuition_funding",
+          "label": "fully_supported"
+        },
+        {
+          "field": "living_stipend",
+          "label": "fully_supported"
+        },
+        {
+          "field": "deadline",
+          "label": "fully_supported"
+        },
+        {
+          "field": "language",
+          "label": "fully_supported"
+        },
+        {
+          "field": "eligibility",
+          "label": "fully_supported"
+        }
+      ],
+      "failure_recovery_experiment": "not injected; see regression tests",
+      "plan_revisions": 1,
+      "run_limits": {
+        "max_iterations": 10,
+        "max_documents": 8,
+        "max_tool_calls": 10,
+        "max_network_requests": 24,
+        "max_model_requests": 24,
+        "max_output_tokens": 24000,
+        "max_input_bytes": 240000,
+        "max_seconds": 180
+      },
+      "predictions": [
+        {
+          "field": "institution",
+          "value": "Lumen Institute",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "e5081803-f585-4a5e-8822-8316dceed9e7",
+            "document_id": "edff0e3d-eb4e-46dd-8f6b-492c81cba9b9",
+            "quote": "Institution: Lumen Institute",
+            "start": 121,
+            "end": 149,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "7564b41d-1b76-4420-bd56-9e48e38c5cb4",
+            "document_id": "edff0e3d-eb4e-46dd-8f6b-492c81cba9b9",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "program",
+          "value": "Lumen AI Master's",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "0dd9e9ce-693e-4832-bd52-bcbaf482e194",
+            "document_id": "edff0e3d-eb4e-46dd-8f6b-492c81cba9b9",
+            "quote": "Program: Lumen AI Master's",
+            "start": 150,
+            "end": 176,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "08dc3af0-3e56-4b94-8539-044a8e61192d",
+            "document_id": "edff0e3d-eb4e-46dd-8f6b-492c81cba9b9",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "degree",
+          "value": "Master of Science",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "a520dd11-d522-4d19-88e1-db03d1b2c0dc",
+            "document_id": "edff0e3d-eb4e-46dd-8f6b-492c81cba9b9",
+            "quote": "Degree: Master of Science",
+            "start": 177,
+            "end": 202,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "df19d1da-d819-4737-9f85-f2aaa454ba1f",
+            "document_id": "edff0e3d-eb4e-46dd-8f6b-492c81cba9b9",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "intake_year",
+          "value": "2027",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "b292fd00-e022-4c41-9b31-b317163a109e",
+            "document_id": "edff0e3d-eb4e-46dd-8f6b-492c81cba9b9",
+            "quote": "Intake year: 2027",
+            "start": 203,
+            "end": 220,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "513eddb3-866b-453e-b0bf-f5ee86197e68",
+            "document_id": "edff0e3d-eb4e-46dd-8f6b-492c81cba9b9",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "tuition_funding",
+          "value": "full tuition",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "fc2888a6-0673-44bd-85f4-0a1285832e0a",
+            "document_id": "edff0e3d-eb4e-46dd-8f6b-492c81cba9b9",
+            "quote": "Tuition funding: full tuition",
+            "start": 221,
+            "end": 250,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "2c84b7c1-5b1f-4f50-a3b1-c52e30f906bc",
+            "document_id": "edff0e3d-eb4e-46dd-8f6b-492c81cba9b9",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "living_stipend",
+          "value": "monthly living allowance of KRW 900,000",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "a27e5f97-dd87-4d5b-9d0e-b5140597984a",
+            "document_id": "edff0e3d-eb4e-46dd-8f6b-492c81cba9b9",
+            "quote": "Living stipend: monthly living allowance of KRW 900,000",
+            "start": 251,
+            "end": 306,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "33c83b8b-b220-4231-b223-2312c924e4b0",
+            "document_id": "edff0e3d-eb4e-46dd-8f6b-492c81cba9b9",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "deadline",
+          "value": "2027-02-15",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "4b965c73-bb67-44c2-a581-7c2bf5cede2e",
+            "document_id": "edff0e3d-eb4e-46dd-8f6b-492c81cba9b9",
+            "quote": "Application deadline: 2027-02-15",
+            "start": 307,
+            "end": 339,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "4c535342-6347-48e6-8f98-176a316fd05e",
+            "document_id": "edff0e3d-eb4e-46dd-8f6b-492c81cba9b9",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "language",
+          "value": "English, IELTS 6.5",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "b2d2116b-fc23-49cb-a5c8-9dca72227167",
+            "document_id": "edff0e3d-eb4e-46dd-8f6b-492c81cba9b9",
+            "quote": "Language: English, IELTS 6.5",
+            "start": 340,
+            "end": 368,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "c07ed95a-6898-42fd-8336-99707c8e217f",
+            "document_id": "edff0e3d-eb4e-46dd-8f6b-492c81cba9b9",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "eligibility",
+          "value": "international applicants with a bachelor's degree",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "b15ff36b-02a8-4602-827e-faa53bb3f757",
+            "document_id": "edff0e3d-eb4e-46dd-8f6b-492c81cba9b9",
+            "quote": "Eligibility: international applicants with a bachelor's degree",
+            "start": 369,
+            "end": 431,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "c0fcf5cd-7599-4073-b5e9-daca624066e1",
+            "document_id": "edff0e3d-eb4e-46dd-8f6b-492c81cba9b9",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        }
+      ],
+      "decision_trace": [
+        {
+          "summary": "Fixed document schedule without adaptive planning or search",
+          "action": "fetch",
+          "target_id": "44483e53-72f6-473a-8e30-ffaf1917f385",
+          "question_id": null,
+          "query": null,
+          "plan_revision": 1
+        },
+        {
+          "summary": "Fixed document schedule without adaptive planning or search",
+          "action": "stop",
+          "target_id": null,
+          "question_id": null,
+          "query": null,
+          "plan_revision": 1
+        }
+      ]
+    },
+    {
+      "case": "conflict",
+      "approach": "B_fixed_retrieval",
+      "status": "completed",
+      "outcome": "partial",
+      "stop_reason": "model_stop",
+      "annotation_status": "author_labeled",
+      "quality_scores_available": true,
+      "metrics": {
+        "claims_emitted": 12,
+        "exact_span_validity": 1.0,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "citation_correctness": 1.0,
+        "unsupported_claim_rate": 0.0,
+        "missing_information_f1": 1.0,
+        "contradiction_precision": 1.0,
+        "contradiction_recall": 1.0,
+        "research_completeness": 1.0,
+        "task_success": true,
+        "failure_analysis": [],
+        "correct_claims": 12,
+        "reference_claims": 12,
+        "raw_extraction_precision": 1.0,
+        "raw_extraction_recall": 1.0
+      },
+      "tool_calls": 2,
+      "provider_requests": 2,
+      "actual_model_requests": 0,
+      "latency_seconds": 0.0791,
+      "input_tokens": null,
+      "output_tokens": null,
+      "usage_complete": null,
+      "estimated_model_cost_usd": 0.0,
+      "source_failures": 0,
+      "invalid_provider_responses": 0,
+      "partial_findings_retained": 12,
+      "unverified_candidates": 0,
+      "candidate_support_labels": [
+        {
+          "field": "institution",
+          "label": "fully_supported"
+        },
+        {
+          "field": "program",
+          "label": "fully_supported"
+        },
+        {
+          "field": "degree",
+          "label": "fully_supported"
+        },
+        {
+          "field": "intake_year",
+          "label": "fully_supported"
+        },
+        {
+          "field": "tuition_funding",
+          "label": "fully_supported"
+        },
+        {
+          "field": "living_stipend",
+          "label": "fully_supported"
+        },
+        {
+          "field": "deadline",
+          "label": "fully_supported"
+        },
+        {
+          "field": "language",
+          "label": "fully_supported"
+        },
+        {
+          "field": "eligibility",
+          "label": "fully_supported"
+        },
+        {
+          "field": "tuition_funding",
+          "label": "fully_supported"
+        },
+        {
+          "field": "deadline",
+          "label": "fully_supported"
+        },
+        {
+          "field": "proof_of_funds",
+          "label": "fully_supported"
+        }
+      ],
+      "failure_recovery_experiment": "not injected; see regression tests",
+      "plan_revisions": 1,
+      "run_limits": {
+        "max_iterations": 10,
+        "max_documents": 8,
+        "max_tool_calls": 10,
+        "max_network_requests": 24,
+        "max_model_requests": 24,
+        "max_output_tokens": 24000,
+        "max_input_bytes": 240000,
+        "max_seconds": 180
+      },
+      "predictions": [
+        {
+          "field": "institution",
+          "value": "Lumen Institute",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "f9b3e592-bba4-431d-8f2f-1af1f83eeee0",
+            "document_id": "b06080d6-a61c-4ce4-b4e8-0aff55741f81",
+            "quote": "Institution: Lumen Institute",
+            "start": 121,
+            "end": 149,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "82d9f45f-5641-4898-a66e-273b1844e55b",
+            "document_id": "b06080d6-a61c-4ce4-b4e8-0aff55741f81",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "program",
+          "value": "Lumen AI Master's",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "bfa15045-7029-4f53-a133-38394a591204",
+            "document_id": "b06080d6-a61c-4ce4-b4e8-0aff55741f81",
+            "quote": "Program: Lumen AI Master's",
+            "start": 150,
+            "end": 176,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "e0901d9a-ed53-4655-b776-7087bfa254f4",
+            "document_id": "b06080d6-a61c-4ce4-b4e8-0aff55741f81",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "degree",
+          "value": "Master of Science",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "e2924422-9674-45c0-af90-1125d26e1bbf",
+            "document_id": "b06080d6-a61c-4ce4-b4e8-0aff55741f81",
+            "quote": "Degree: Master of Science",
+            "start": 177,
+            "end": 202,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "fbd8c5c7-6912-4de7-a26a-e4da777bb76c",
+            "document_id": "b06080d6-a61c-4ce4-b4e8-0aff55741f81",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "intake_year",
+          "value": "2027",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "ba55ec9c-4f12-450c-bd98-93d8c4241c09",
+            "document_id": "b06080d6-a61c-4ce4-b4e8-0aff55741f81",
+            "quote": "Intake year: 2027",
+            "start": 203,
+            "end": 220,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "a8d47cb0-45fd-4e7f-9575-57544f64558c",
+            "document_id": "b06080d6-a61c-4ce4-b4e8-0aff55741f81",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "tuition_funding",
+          "value": "full tuition",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "673c8f6b-e169-4319-914a-7ee7305467ad",
+            "document_id": "b06080d6-a61c-4ce4-b4e8-0aff55741f81",
+            "quote": "Tuition funding: full tuition",
+            "start": 221,
+            "end": 250,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "8dc98c69-a8b3-42e0-ac13-d59a144ba68f",
+            "document_id": "b06080d6-a61c-4ce4-b4e8-0aff55741f81",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "living_stipend",
+          "value": "monthly living allowance of KRW 900,000",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "f4715299-f38d-4949-8e97-a62e32b02fa8",
+            "document_id": "b06080d6-a61c-4ce4-b4e8-0aff55741f81",
+            "quote": "Living stipend: monthly living allowance of KRW 900,000",
+            "start": 251,
+            "end": 306,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "32fc94fc-29fd-490e-bb5a-e67e930e5de0",
+            "document_id": "b06080d6-a61c-4ce4-b4e8-0aff55741f81",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "deadline",
+          "value": "2027-02-15",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "a92e655c-0cc6-4ca6-8a38-0be1b8727a74",
+            "document_id": "b06080d6-a61c-4ce4-b4e8-0aff55741f81",
+            "quote": "Application deadline: 2027-02-15",
+            "start": 307,
+            "end": 339,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "3cf46f9a-1977-4ebc-a6e6-9d8bd81c1a51",
+            "document_id": "b06080d6-a61c-4ce4-b4e8-0aff55741f81",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "language",
+          "value": "English, IELTS 6.5",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "19b0709f-85f8-4c4c-8f98-27375a6ba95b",
+            "document_id": "b06080d6-a61c-4ce4-b4e8-0aff55741f81",
+            "quote": "Language: English, IELTS 6.5",
+            "start": 340,
+            "end": 368,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "e6ebb7ad-a9d8-41fb-b6d3-4a4e0a391fd5",
+            "document_id": "b06080d6-a61c-4ce4-b4e8-0aff55741f81",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "eligibility",
+          "value": "international applicants with a bachelor's degree",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "8fa2397e-0d20-4506-b390-9ac5917048fe",
+            "document_id": "b06080d6-a61c-4ce4-b4e8-0aff55741f81",
+            "quote": "Eligibility: international applicants with a bachelor's degree",
+            "start": 369,
+            "end": 431,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "f93144dd-06a3-4628-8634-f1960bb1fa4d",
+            "document_id": "b06080d6-a61c-4ce4-b4e8-0aff55741f81",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "tuition_funding",
+          "value": "tuition not covered",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "a4f40183-f9bf-40c4-957c-8b3128c423ef",
+            "document_id": "7ae534fb-af04-4661-b1f1-aeba120e8db2",
+            "quote": "Tuition funding: tuition not covered",
+            "start": 82,
+            "end": 118,
+            "location": {},
+            "purpose": "support",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "7be8f4083bb4c0de23d708507f32a40190b8466ec738a1e74438bb5202efa9e2",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "ba728602-5a18-47d6-a7d3-d2cd44433102",
+            "document_id": "7ae534fb-af04-4661-b1f1-aeba120e8db2",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 33,
+            "end": 57,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "7be8f4083bb4c0de23d708507f32a40190b8466ec738a1e74438bb5202efa9e2",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "deadline",
+          "value": "2027-03-01",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "506f6f94-3203-4f8e-ae38-52309afe33c2",
+            "document_id": "7ae534fb-af04-4661-b1f1-aeba120e8db2",
+            "quote": "Application deadline: 2027-03-01",
+            "start": 119,
+            "end": 151,
+            "location": {},
+            "purpose": "support",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "7be8f4083bb4c0de23d708507f32a40190b8466ec738a1e74438bb5202efa9e2",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "5af1cd43-83ad-45d6-9cf8-a29a7a12dbe6",
+            "document_id": "7ae534fb-af04-4661-b1f1-aeba120e8db2",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 33,
+            "end": 57,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "7be8f4083bb4c0de23d708507f32a40190b8466ec738a1e74438bb5202efa9e2",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "proof_of_funds",
+          "value": "required",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "5cc84160-eb5c-411a-8f86-45c4cc5c4c92",
+            "document_id": "7ae534fb-af04-4661-b1f1-aeba120e8db2",
+            "quote": "Proof of funds: required",
+            "start": 152,
+            "end": 176,
+            "location": {},
+            "purpose": "support",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "7be8f4083bb4c0de23d708507f32a40190b8466ec738a1e74438bb5202efa9e2",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "bdce88d7-9403-41f6-9ace-578caaa2ba96",
+            "document_id": "7ae534fb-af04-4661-b1f1-aeba120e8db2",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 33,
+            "end": 57,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "7be8f4083bb4c0de23d708507f32a40190b8466ec738a1e74438bb5202efa9e2",
+            "synthetic": true
+          }
+        }
+      ],
+      "decision_trace": [
+        {
+          "summary": "Fixed document schedule without adaptive planning or search",
+          "action": "fetch",
+          "target_id": "33e306cf-6cb8-44ae-96b7-a72e70247226",
+          "question_id": null,
+          "query": null,
+          "plan_revision": 1
+        },
+        {
+          "summary": "Fixed document schedule without adaptive planning or search",
+          "action": "fetch",
+          "target_id": "80f8666f-1796-4bad-b9bf-8fcd734dc8e2",
+          "question_id": null,
+          "query": null,
+          "plan_revision": 1
+        },
+        {
+          "summary": "Fixed document schedule without adaptive planning or search",
+          "action": "stop",
+          "target_id": null,
+          "question_id": null,
+          "query": null,
+          "plan_revision": 1
+        }
+      ]
+    },
+    {
+      "case": "conflict",
+      "approach": "C_adaptive",
+      "status": "completed",
+      "outcome": "partial",
+      "stop_reason": "model_stop",
+      "annotation_status": "author_labeled",
+      "quality_scores_available": true,
+      "metrics": {
+        "claims_emitted": 12,
+        "exact_span_validity": 1.0,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "citation_correctness": 1.0,
+        "unsupported_claim_rate": 0.0,
+        "missing_information_f1": 1.0,
+        "contradiction_precision": 1.0,
+        "contradiction_recall": 1.0,
+        "research_completeness": 1.0,
+        "task_success": true,
+        "failure_analysis": [],
+        "correct_claims": 12,
+        "reference_claims": 12,
+        "raw_extraction_precision": 1.0,
+        "raw_extraction_recall": 1.0
+      },
+      "tool_calls": 2,
+      "provider_requests": 6,
+      "actual_model_requests": 0,
+      "latency_seconds": 0.0748,
+      "input_tokens": null,
+      "output_tokens": null,
+      "usage_complete": null,
+      "estimated_model_cost_usd": 0.0,
+      "source_failures": 0,
+      "invalid_provider_responses": 0,
+      "partial_findings_retained": 12,
+      "unverified_candidates": 0,
+      "candidate_support_labels": [
+        {
+          "field": "institution",
+          "label": "fully_supported"
+        },
+        {
+          "field": "program",
+          "label": "fully_supported"
+        },
+        {
+          "field": "degree",
+          "label": "fully_supported"
+        },
+        {
+          "field": "intake_year",
+          "label": "fully_supported"
+        },
+        {
+          "field": "tuition_funding",
+          "label": "fully_supported"
+        },
+        {
+          "field": "living_stipend",
+          "label": "fully_supported"
+        },
+        {
+          "field": "deadline",
+          "label": "fully_supported"
+        },
+        {
+          "field": "language",
+          "label": "fully_supported"
+        },
+        {
+          "field": "eligibility",
+          "label": "fully_supported"
+        },
+        {
+          "field": "tuition_funding",
+          "label": "fully_supported"
+        },
+        {
+          "field": "deadline",
+          "label": "fully_supported"
+        },
+        {
+          "field": "proof_of_funds",
+          "label": "fully_supported"
+        }
+      ],
+      "failure_recovery_experiment": "not injected; see regression tests",
+      "plan_revisions": 2,
+      "run_limits": {
+        "max_iterations": 10,
+        "max_documents": 8,
+        "max_tool_calls": 10,
+        "max_network_requests": 24,
+        "max_model_requests": 24,
+        "max_output_tokens": 24000,
+        "max_input_bytes": 240000,
+        "max_seconds": 180
+      },
+      "predictions": [
+        {
+          "field": "institution",
+          "value": "Lumen Institute",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "69559c4a-3da9-4000-ae0b-3802c90ec80f",
+            "document_id": "e597fbc0-b1ae-4e0d-94fd-f289f819f6d0",
+            "quote": "Institution: Lumen Institute",
+            "start": 121,
+            "end": 149,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "ae88cd91-17a6-4d8a-a6ad-f302356d6ad9",
+            "document_id": "e597fbc0-b1ae-4e0d-94fd-f289f819f6d0",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "program",
+          "value": "Lumen AI Master's",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "16a36f27-317a-4b65-818d-a9d2ff974537",
+            "document_id": "e597fbc0-b1ae-4e0d-94fd-f289f819f6d0",
+            "quote": "Program: Lumen AI Master's",
+            "start": 150,
+            "end": 176,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "ac6127ce-8005-457b-bbd7-55d9e5d01704",
+            "document_id": "e597fbc0-b1ae-4e0d-94fd-f289f819f6d0",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "degree",
+          "value": "Master of Science",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "a0bef7d6-4588-42e3-8b20-fced8d237b25",
+            "document_id": "e597fbc0-b1ae-4e0d-94fd-f289f819f6d0",
+            "quote": "Degree: Master of Science",
+            "start": 177,
+            "end": 202,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "de32e8bc-ff03-4495-850e-871c26c630a4",
+            "document_id": "e597fbc0-b1ae-4e0d-94fd-f289f819f6d0",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "intake_year",
+          "value": "2027",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "5dc8cac3-2dee-4e6d-93a4-d7f44d99547c",
+            "document_id": "e597fbc0-b1ae-4e0d-94fd-f289f819f6d0",
+            "quote": "Intake year: 2027",
+            "start": 203,
+            "end": 220,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "0807d884-ff14-4adb-88fd-cc604d420b76",
+            "document_id": "e597fbc0-b1ae-4e0d-94fd-f289f819f6d0",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "tuition_funding",
+          "value": "full tuition",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "81455f02-9893-434a-8e1a-feaf7e24b85a",
+            "document_id": "e597fbc0-b1ae-4e0d-94fd-f289f819f6d0",
+            "quote": "Tuition funding: full tuition",
+            "start": 221,
+            "end": 250,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "b3880fec-7310-4018-9cc9-3ccf2cd6cc6a",
+            "document_id": "e597fbc0-b1ae-4e0d-94fd-f289f819f6d0",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "living_stipend",
+          "value": "monthly living allowance of KRW 900,000",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "7319adab-92ea-4d01-9d81-38a6b73fe57b",
+            "document_id": "e597fbc0-b1ae-4e0d-94fd-f289f819f6d0",
+            "quote": "Living stipend: monthly living allowance of KRW 900,000",
+            "start": 251,
+            "end": 306,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "4e47eef8-c957-4c85-84f6-d4f6bcc90bed",
+            "document_id": "e597fbc0-b1ae-4e0d-94fd-f289f819f6d0",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "deadline",
+          "value": "2027-02-15",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "60cd1851-80cb-4ebc-a1e1-571e2e5f986d",
+            "document_id": "e597fbc0-b1ae-4e0d-94fd-f289f819f6d0",
+            "quote": "Application deadline: 2027-02-15",
+            "start": 307,
+            "end": 339,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "a46271b9-f55a-4ee5-92a6-03c0dd9626c4",
+            "document_id": "e597fbc0-b1ae-4e0d-94fd-f289f819f6d0",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "language",
+          "value": "English, IELTS 6.5",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "442bae4f-ff4f-46c6-b712-1b683f904841",
+            "document_id": "e597fbc0-b1ae-4e0d-94fd-f289f819f6d0",
+            "quote": "Language: English, IELTS 6.5",
+            "start": 340,
+            "end": 368,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "40dfd7d8-1d55-44d7-b750-4717cbcb0193",
+            "document_id": "e597fbc0-b1ae-4e0d-94fd-f289f819f6d0",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "eligibility",
+          "value": "international applicants with a bachelor's degree",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "67dacfde-f359-45ce-9370-338e66594e15",
+            "document_id": "e597fbc0-b1ae-4e0d-94fd-f289f819f6d0",
+            "quote": "Eligibility: international applicants with a bachelor's degree",
+            "start": 369,
+            "end": 431,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "fef34eb3-70a9-484b-8a99-c5218aa62cf9",
+            "document_id": "e597fbc0-b1ae-4e0d-94fd-f289f819f6d0",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "tuition_funding",
+          "value": "tuition not covered",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "5a42df17-305c-4b78-a3a5-7ee812a953f3",
+            "document_id": "e5d8c67f-35c9-4067-8dc7-f5a515a22cca",
+            "quote": "Tuition funding: tuition not covered",
+            "start": 82,
+            "end": 118,
+            "location": {},
+            "purpose": "support",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "7be8f4083bb4c0de23d708507f32a40190b8466ec738a1e74438bb5202efa9e2",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "d5bb099a-5265-4086-9576-e93ff221bafb",
+            "document_id": "e5d8c67f-35c9-4067-8dc7-f5a515a22cca",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 33,
+            "end": 57,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "7be8f4083bb4c0de23d708507f32a40190b8466ec738a1e74438bb5202efa9e2",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "deadline",
+          "value": "2027-03-01",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "b268d1b6-f2e0-44f5-8332-8086403c27be",
+            "document_id": "e5d8c67f-35c9-4067-8dc7-f5a515a22cca",
+            "quote": "Application deadline: 2027-03-01",
+            "start": 119,
+            "end": 151,
+            "location": {},
+            "purpose": "support",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "7be8f4083bb4c0de23d708507f32a40190b8466ec738a1e74438bb5202efa9e2",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "690f6e7a-a2d3-431a-9ae9-0956918eac41",
+            "document_id": "e5d8c67f-35c9-4067-8dc7-f5a515a22cca",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 33,
+            "end": 57,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "7be8f4083bb4c0de23d708507f32a40190b8466ec738a1e74438bb5202efa9e2",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "proof_of_funds",
+          "value": "required",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "c7b64bd5-67c7-4b51-aaa7-ebcc3ba4351e",
+            "document_id": "e5d8c67f-35c9-4067-8dc7-f5a515a22cca",
+            "quote": "Proof of funds: required",
+            "start": 152,
+            "end": 176,
+            "location": {},
+            "purpose": "support",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "7be8f4083bb4c0de23d708507f32a40190b8466ec738a1e74438bb5202efa9e2",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "d1866c2f-8d68-4cb0-a4f0-cccc98c3b158",
+            "document_id": "e5d8c67f-35c9-4067-8dc7-f5a515a22cca",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 33,
+            "end": 57,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://fund.atlas.invalid/award",
+            "source_hash": "7be8f4083bb4c0de23d708507f32a40190b8466ec738a1e74438bb5202efa9e2",
+            "synthetic": true
+          }
+        }
+      ],
+      "decision_trace": [
+        {
+          "summary": "Inspect the supplied synthetic program source first",
+          "action": "fetch",
+          "target_id": "527b02fe-1cf5-4df2-ab64-bd3583b0df9e",
+          "question_id": "q2",
+          "query": null,
+          "plan_revision": 1
+        },
+        {
+          "summary": "Inspect the linked financial handbook because proof-of-funds evidence is missing",
+          "action": "fetch",
+          "target_id": "d026dc42-dd23-4288-a6a4-91355b221bf2",
+          "question_id": "q2",
+          "query": null,
+          "plan_revision": 2
+        },
+        {
+          "summary": "No further in-scope fixture sources remain; report supported findings, conflicts, and unanswered questions",
+          "action": "stop",
+          "target_id": null,
+          "question_id": null,
+          "query": null,
+          "plan_revision": 2
+        }
+      ]
+    },
+    {
+      "case": "insufficient",
+      "approach": "A_direct",
+      "status": "completed",
+      "outcome": "partial",
+      "stop_reason": "model_stop",
+      "annotation_status": "author_labeled",
+      "quality_scores_available": true,
+      "metrics": {
+        "claims_emitted": 9,
+        "exact_span_validity": 1.0,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "citation_correctness": 1.0,
+        "unsupported_claim_rate": 0.0,
+        "missing_information_f1": 1.0,
+        "contradiction_precision": null,
+        "contradiction_recall": null,
+        "research_completeness": 1.0,
+        "task_success": true,
+        "failure_analysis": [],
+        "correct_claims": 9,
+        "reference_claims": 9,
+        "raw_extraction_precision": 1.0,
+        "raw_extraction_recall": 1.0
+      },
+      "tool_calls": 1,
+      "provider_requests": 1,
+      "actual_model_requests": 0,
+      "latency_seconds": 0.1176,
+      "input_tokens": null,
+      "output_tokens": null,
+      "usage_complete": null,
+      "estimated_model_cost_usd": 0.0,
+      "source_failures": 0,
+      "invalid_provider_responses": 0,
+      "partial_findings_retained": 9,
+      "unverified_candidates": 0,
+      "candidate_support_labels": [
+        {
+          "field": "institution",
+          "label": "fully_supported"
+        },
+        {
+          "field": "program",
+          "label": "fully_supported"
+        },
+        {
+          "field": "degree",
+          "label": "fully_supported"
+        },
+        {
+          "field": "intake_year",
+          "label": "fully_supported"
+        },
+        {
+          "field": "tuition_funding",
+          "label": "fully_supported"
+        },
+        {
+          "field": "living_stipend",
+          "label": "fully_supported"
+        },
+        {
+          "field": "deadline",
+          "label": "fully_supported"
+        },
+        {
+          "field": "language",
+          "label": "fully_supported"
+        },
+        {
+          "field": "eligibility",
+          "label": "fully_supported"
+        }
+      ],
+      "failure_recovery_experiment": "not injected; see regression tests",
+      "plan_revisions": 1,
+      "run_limits": {
+        "max_iterations": 10,
+        "max_documents": 8,
+        "max_tool_calls": 10,
+        "max_network_requests": 24,
+        "max_model_requests": 24,
+        "max_output_tokens": 24000,
+        "max_input_bytes": 240000,
+        "max_seconds": 180
+      },
+      "predictions": [
+        {
+          "field": "institution",
+          "value": "Lumen Institute",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "b6d0ff03-a145-43f5-bef8-df22f6a4d86c",
+            "document_id": "7ff22d05-3e30-498c-89d8-7e5de0dc744a",
+            "quote": "Institution: Lumen Institute",
+            "start": 121,
+            "end": 149,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "658a9de8-a325-47ce-bc8f-1ad21feea29f",
+            "document_id": "7ff22d05-3e30-498c-89d8-7e5de0dc744a",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "program",
+          "value": "Lumen AI Master's",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "5cd9ac71-0595-498b-a415-2ec590d7af2a",
+            "document_id": "7ff22d05-3e30-498c-89d8-7e5de0dc744a",
+            "quote": "Program: Lumen AI Master's",
+            "start": 150,
+            "end": 176,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "da71666b-d996-429d-b475-a874acdb6427",
+            "document_id": "7ff22d05-3e30-498c-89d8-7e5de0dc744a",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "degree",
+          "value": "Master of Science",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "f9bef637-59bc-4e1c-8d20-211ecc5fcd4e",
+            "document_id": "7ff22d05-3e30-498c-89d8-7e5de0dc744a",
+            "quote": "Degree: Master of Science",
+            "start": 177,
+            "end": 202,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "4b91db63-3bf1-44f5-b51a-f45b85398f32",
+            "document_id": "7ff22d05-3e30-498c-89d8-7e5de0dc744a",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "intake_year",
+          "value": "2027",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "8dd5e9f9-8c5f-43b8-b734-6f3629c0daf0",
+            "document_id": "7ff22d05-3e30-498c-89d8-7e5de0dc744a",
+            "quote": "Intake year: 2027",
+            "start": 203,
+            "end": 220,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "633d682d-d9af-4da6-9ca8-233003b7ca49",
+            "document_id": "7ff22d05-3e30-498c-89d8-7e5de0dc744a",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "tuition_funding",
+          "value": "full tuition",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "a21529bb-b5ed-44b5-9d90-c63220648ad6",
+            "document_id": "7ff22d05-3e30-498c-89d8-7e5de0dc744a",
+            "quote": "Tuition funding: full tuition",
+            "start": 221,
+            "end": 250,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "0184a74c-56ce-424b-ab66-e859279e3543",
+            "document_id": "7ff22d05-3e30-498c-89d8-7e5de0dc744a",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "living_stipend",
+          "value": "monthly living allowance of KRW 900,000",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "cc1d44f7-e98c-41e3-8ebf-e3cc4ecba480",
+            "document_id": "7ff22d05-3e30-498c-89d8-7e5de0dc744a",
+            "quote": "Living stipend: monthly living allowance of KRW 900,000",
+            "start": 251,
+            "end": 306,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "c72147f8-c3ea-472d-9b06-748fb727e165",
+            "document_id": "7ff22d05-3e30-498c-89d8-7e5de0dc744a",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "deadline",
+          "value": "2027-02-15",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "8a285911-1610-4672-91ed-341360d4e503",
+            "document_id": "7ff22d05-3e30-498c-89d8-7e5de0dc744a",
+            "quote": "Application deadline: 2027-02-15",
+            "start": 307,
+            "end": 339,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "fb3ddda7-6e73-46b8-8fe4-551a49ab7ae2",
+            "document_id": "7ff22d05-3e30-498c-89d8-7e5de0dc744a",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "language",
+          "value": "English, IELTS 6.5",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "58301086-82c6-4d2b-8831-01f64bd85a2b",
+            "document_id": "7ff22d05-3e30-498c-89d8-7e5de0dc744a",
+            "quote": "Language: English, IELTS 6.5",
+            "start": 340,
+            "end": 368,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "3476fa93-a67a-4952-879a-a9a5fb542e2d",
+            "document_id": "7ff22d05-3e30-498c-89d8-7e5de0dc744a",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "eligibility",
+          "value": "international applicants with a bachelor's degree",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "ee2226a2-9665-48cd-bca5-aff68a539652",
+            "document_id": "7ff22d05-3e30-498c-89d8-7e5de0dc744a",
+            "quote": "Eligibility: international applicants with a bachelor's degree",
+            "start": 369,
+            "end": 431,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "3187c8d8-8114-47dc-a441-6aa8fe5aa1da",
+            "document_id": "7ff22d05-3e30-498c-89d8-7e5de0dc744a",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        }
+      ],
+      "decision_trace": [
+        {
+          "summary": "Fixed document schedule without adaptive planning or search",
+          "action": "fetch",
+          "target_id": "609b32a1-fa67-4a1f-a76a-b0f3b2bab08b",
+          "question_id": null,
+          "query": null,
+          "plan_revision": 1
+        },
+        {
+          "summary": "Fixed document schedule without adaptive planning or search",
+          "action": "stop",
+          "target_id": null,
+          "question_id": null,
+          "query": null,
+          "plan_revision": 1
+        }
+      ]
+    },
+    {
+      "case": "insufficient",
+      "approach": "B_fixed_retrieval",
+      "status": "completed",
+      "outcome": "partial",
+      "stop_reason": "model_stop",
+      "annotation_status": "author_labeled",
+      "quality_scores_available": true,
+      "metrics": {
+        "claims_emitted": 9,
+        "exact_span_validity": 1.0,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "citation_correctness": 1.0,
+        "unsupported_claim_rate": 0.0,
+        "missing_information_f1": 1.0,
+        "contradiction_precision": null,
+        "contradiction_recall": null,
+        "research_completeness": 1.0,
+        "task_success": true,
+        "failure_analysis": [],
+        "correct_claims": 9,
+        "reference_claims": 9,
+        "raw_extraction_precision": 1.0,
+        "raw_extraction_recall": 1.0
+      },
+      "tool_calls": 2,
+      "provider_requests": 2,
+      "actual_model_requests": 0,
+      "latency_seconds": 0.0692,
+      "input_tokens": null,
+      "output_tokens": null,
+      "usage_complete": null,
+      "estimated_model_cost_usd": 0.0,
+      "source_failures": 0,
+      "invalid_provider_responses": 0,
+      "partial_findings_retained": 9,
+      "unverified_candidates": 0,
+      "candidate_support_labels": [
+        {
+          "field": "institution",
+          "label": "fully_supported"
+        },
+        {
+          "field": "program",
+          "label": "fully_supported"
+        },
+        {
+          "field": "degree",
+          "label": "fully_supported"
+        },
+        {
+          "field": "intake_year",
+          "label": "fully_supported"
+        },
+        {
+          "field": "tuition_funding",
+          "label": "fully_supported"
+        },
+        {
+          "field": "living_stipend",
+          "label": "fully_supported"
+        },
+        {
+          "field": "deadline",
+          "label": "fully_supported"
+        },
+        {
+          "field": "language",
+          "label": "fully_supported"
+        },
+        {
+          "field": "eligibility",
+          "label": "fully_supported"
+        }
+      ],
+      "failure_recovery_experiment": "not injected; see regression tests",
+      "plan_revisions": 1,
+      "run_limits": {
+        "max_iterations": 10,
+        "max_documents": 8,
+        "max_tool_calls": 10,
+        "max_network_requests": 24,
+        "max_model_requests": 24,
+        "max_output_tokens": 24000,
+        "max_input_bytes": 240000,
+        "max_seconds": 180
+      },
+      "predictions": [
+        {
+          "field": "institution",
+          "value": "Lumen Institute",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "4c35899e-45ad-45ab-bb48-d2ad95a04c23",
+            "document_id": "f8200525-9a97-4592-8b14-4b98d33b9275",
+            "quote": "Institution: Lumen Institute",
+            "start": 121,
+            "end": 149,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "a9c2e750-dbe5-4855-99c3-78bb26591e3b",
+            "document_id": "f8200525-9a97-4592-8b14-4b98d33b9275",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "program",
+          "value": "Lumen AI Master's",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "a329b72a-eddd-4b16-b8e5-a4af303fec3a",
+            "document_id": "f8200525-9a97-4592-8b14-4b98d33b9275",
+            "quote": "Program: Lumen AI Master's",
+            "start": 150,
+            "end": 176,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "07fa8d10-30ec-4656-a6f0-b80d35bbf281",
+            "document_id": "f8200525-9a97-4592-8b14-4b98d33b9275",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "degree",
+          "value": "Master of Science",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "100650be-c431-4476-95cf-bd808f0489ca",
+            "document_id": "f8200525-9a97-4592-8b14-4b98d33b9275",
+            "quote": "Degree: Master of Science",
+            "start": 177,
+            "end": 202,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "0a892aac-d087-460e-b104-93b0dff36e7b",
+            "document_id": "f8200525-9a97-4592-8b14-4b98d33b9275",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "intake_year",
+          "value": "2027",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "b7d28c93-77f5-4342-830e-21b8481a6061",
+            "document_id": "f8200525-9a97-4592-8b14-4b98d33b9275",
+            "quote": "Intake year: 2027",
+            "start": 203,
+            "end": 220,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "374845f6-26fe-44f2-abf6-0901509022df",
+            "document_id": "f8200525-9a97-4592-8b14-4b98d33b9275",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "tuition_funding",
+          "value": "full tuition",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "d6195eef-17e8-4adc-97ee-7dbde801cf49",
+            "document_id": "f8200525-9a97-4592-8b14-4b98d33b9275",
+            "quote": "Tuition funding: full tuition",
+            "start": 221,
+            "end": 250,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "ec773339-de52-479c-b75c-b1cf315ca36c",
+            "document_id": "f8200525-9a97-4592-8b14-4b98d33b9275",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "living_stipend",
+          "value": "monthly living allowance of KRW 900,000",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "42ff4719-0919-42a2-b624-06b4e6aa5622",
+            "document_id": "f8200525-9a97-4592-8b14-4b98d33b9275",
+            "quote": "Living stipend: monthly living allowance of KRW 900,000",
+            "start": 251,
+            "end": 306,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "0c9bd00e-63de-4a53-a98d-21c1000cd91e",
+            "document_id": "f8200525-9a97-4592-8b14-4b98d33b9275",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "deadline",
+          "value": "2027-02-15",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "52ee36b8-31f5-46f6-8047-8aa4f561f4cd",
+            "document_id": "f8200525-9a97-4592-8b14-4b98d33b9275",
+            "quote": "Application deadline: 2027-02-15",
+            "start": 307,
+            "end": 339,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "e38c321e-6749-4acd-b9bd-08f31857a2b8",
+            "document_id": "f8200525-9a97-4592-8b14-4b98d33b9275",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "language",
+          "value": "English, IELTS 6.5",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "fabf9ca7-51c3-473f-bbd1-b74642c77de9",
+            "document_id": "f8200525-9a97-4592-8b14-4b98d33b9275",
+            "quote": "Language: English, IELTS 6.5",
+            "start": 340,
+            "end": 368,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "0532e8eb-6531-4aa0-9e84-b70ed1f553d2",
+            "document_id": "f8200525-9a97-4592-8b14-4b98d33b9275",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "eligibility",
+          "value": "international applicants with a bachelor's degree",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "4878e74d-a27b-4ba4-ada2-c4c8304ec200",
+            "document_id": "f8200525-9a97-4592-8b14-4b98d33b9275",
+            "quote": "Eligibility: international applicants with a bachelor's degree",
+            "start": 369,
+            "end": 431,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "38af8fb0-b20b-434e-95fd-561c9b7db140",
+            "document_id": "f8200525-9a97-4592-8b14-4b98d33b9275",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        }
+      ],
+      "decision_trace": [
+        {
+          "summary": "Fixed document schedule without adaptive planning or search",
+          "action": "fetch",
+          "target_id": "274ac325-2354-48d0-b026-ffcca44b2f3f",
+          "question_id": null,
+          "query": null,
+          "plan_revision": 1
+        },
+        {
+          "summary": "Fixed document schedule without adaptive planning or search",
+          "action": "fetch",
+          "target_id": "6db8c663-dd32-4f07-a31c-5ac653c863a8",
+          "question_id": null,
+          "query": null,
+          "plan_revision": 1
+        },
+        {
+          "summary": "Fixed document schedule without adaptive planning or search",
+          "action": "stop",
+          "target_id": null,
+          "question_id": null,
+          "query": null,
+          "plan_revision": 1
+        }
+      ]
+    },
+    {
+      "case": "insufficient",
+      "approach": "C_adaptive",
+      "status": "completed",
+      "outcome": "partial",
+      "stop_reason": "model_stop",
+      "annotation_status": "author_labeled",
+      "quality_scores_available": true,
+      "metrics": {
+        "claims_emitted": 9,
+        "exact_span_validity": 1.0,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "citation_correctness": 1.0,
+        "unsupported_claim_rate": 0.0,
+        "missing_information_f1": 1.0,
+        "contradiction_precision": null,
+        "contradiction_recall": null,
+        "research_completeness": 1.0,
+        "task_success": true,
+        "failure_analysis": [],
+        "correct_claims": 9,
+        "reference_claims": 9,
+        "raw_extraction_precision": 1.0,
+        "raw_extraction_recall": 1.0
+      },
+      "tool_calls": 2,
+      "provider_requests": 6,
+      "actual_model_requests": 0,
+      "latency_seconds": 0.0718,
+      "input_tokens": null,
+      "output_tokens": null,
+      "usage_complete": null,
+      "estimated_model_cost_usd": 0.0,
+      "source_failures": 0,
+      "invalid_provider_responses": 0,
+      "partial_findings_retained": 9,
+      "unverified_candidates": 0,
+      "candidate_support_labels": [
+        {
+          "field": "institution",
+          "label": "fully_supported"
+        },
+        {
+          "field": "program",
+          "label": "fully_supported"
+        },
+        {
+          "field": "degree",
+          "label": "fully_supported"
+        },
+        {
+          "field": "intake_year",
+          "label": "fully_supported"
+        },
+        {
+          "field": "tuition_funding",
+          "label": "fully_supported"
+        },
+        {
+          "field": "living_stipend",
+          "label": "fully_supported"
+        },
+        {
+          "field": "deadline",
+          "label": "fully_supported"
+        },
+        {
+          "field": "language",
+          "label": "fully_supported"
+        },
+        {
+          "field": "eligibility",
+          "label": "fully_supported"
+        }
+      ],
+      "failure_recovery_experiment": "not injected; see regression tests",
+      "plan_revisions": 2,
+      "run_limits": {
+        "max_iterations": 10,
+        "max_documents": 8,
+        "max_tool_calls": 10,
+        "max_network_requests": 24,
+        "max_model_requests": 24,
+        "max_output_tokens": 24000,
+        "max_input_bytes": 240000,
+        "max_seconds": 180
+      },
+      "predictions": [
+        {
+          "field": "institution",
+          "value": "Lumen Institute",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "87978b88-b555-4151-8b59-23fd085f6f1f",
+            "document_id": "da5f71a3-c1d7-4fb6-8b57-79d3eed137f3",
+            "quote": "Institution: Lumen Institute",
+            "start": 121,
+            "end": 149,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "f655e8c2-de1b-4402-9712-30fea917fadf",
+            "document_id": "da5f71a3-c1d7-4fb6-8b57-79d3eed137f3",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "program",
+          "value": "Lumen AI Master's",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "43a34675-139e-46b4-a6d6-dff2f23bc67c",
+            "document_id": "da5f71a3-c1d7-4fb6-8b57-79d3eed137f3",
+            "quote": "Program: Lumen AI Master's",
+            "start": 150,
+            "end": 176,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "72bb298f-b932-4196-b7d4-4d681aac3727",
+            "document_id": "da5f71a3-c1d7-4fb6-8b57-79d3eed137f3",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "degree",
+          "value": "Master of Science",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "77b009b4-fb0c-497e-8a69-14c77db8af75",
+            "document_id": "da5f71a3-c1d7-4fb6-8b57-79d3eed137f3",
+            "quote": "Degree: Master of Science",
+            "start": 177,
+            "end": 202,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "97e2b3c1-4939-434d-80a0-b832fd2fcc41",
+            "document_id": "da5f71a3-c1d7-4fb6-8b57-79d3eed137f3",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "intake_year",
+          "value": "2027",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "6283d8f6-3396-4b40-b37a-c467e31ddb82",
+            "document_id": "da5f71a3-c1d7-4fb6-8b57-79d3eed137f3",
+            "quote": "Intake year: 2027",
+            "start": 203,
+            "end": 220,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "221d05f4-899f-4415-b694-f69cc9f03189",
+            "document_id": "da5f71a3-c1d7-4fb6-8b57-79d3eed137f3",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "tuition_funding",
+          "value": "full tuition",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "69d1458c-7bf8-4b43-b1dc-3746285316dd",
+            "document_id": "da5f71a3-c1d7-4fb6-8b57-79d3eed137f3",
+            "quote": "Tuition funding: full tuition",
+            "start": 221,
+            "end": 250,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "1bc866bf-30d2-460c-badc-6c5ab1855d3f",
+            "document_id": "da5f71a3-c1d7-4fb6-8b57-79d3eed137f3",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "living_stipend",
+          "value": "monthly living allowance of KRW 900,000",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "3fcfe76d-da04-4dd5-8e71-124eae9d375c",
+            "document_id": "da5f71a3-c1d7-4fb6-8b57-79d3eed137f3",
+            "quote": "Living stipend: monthly living allowance of KRW 900,000",
+            "start": 251,
+            "end": 306,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "1dc733da-0bde-40a8-a8b5-5f580db17f31",
+            "document_id": "da5f71a3-c1d7-4fb6-8b57-79d3eed137f3",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "deadline",
+          "value": "2027-02-15",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "21cde422-4146-49f5-a9b0-7c31a87ccd94",
+            "document_id": "da5f71a3-c1d7-4fb6-8b57-79d3eed137f3",
+            "quote": "Application deadline: 2027-02-15",
+            "start": 307,
+            "end": 339,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "73f597ad-f0fb-4c17-acb7-1cc0285babad",
+            "document_id": "da5f71a3-c1d7-4fb6-8b57-79d3eed137f3",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "language",
+          "value": "English, IELTS 6.5",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "253b0b56-fb30-418c-a253-f342a92a0a7b",
+            "document_id": "da5f71a3-c1d7-4fb6-8b57-79d3eed137f3",
+            "quote": "Language: English, IELTS 6.5",
+            "start": 340,
+            "end": 368,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "8a3662b1-b6b6-43ed-90ba-18910cac78c0",
+            "document_id": "da5f71a3-c1d7-4fb6-8b57-79d3eed137f3",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        },
+        {
+          "field": "eligibility",
+          "value": "international applicants with a bachelor's degree",
+          "scope": {
+            "program": "Lumen AI Master's",
+            "intake_year": 2027,
+            "award_track": null,
+            "applicant_group": null,
+            "source_version": null
+          },
+          "support": {
+            "id": "93549440-a878-4e68-82e9-ec9101e997f1",
+            "document_id": "da5f71a3-c1d7-4fb6-8b57-79d3eed137f3",
+            "quote": "Eligibility: international applicants with a bachelor's degree",
+            "start": 369,
+            "end": 431,
+            "location": {},
+            "purpose": "support",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          },
+          "scope_support": {
+            "id": "286a49da-2fb4-4b5c-b7fa-c57dc5649c6a",
+            "document_id": "da5f71a3-c1d7-4fb6-8b57-79d3eed137f3",
+            "quote": "Lumen AI Master's \u2014 2027",
+            "start": 24,
+            "end": 48,
+            "location": {},
+            "purpose": "scope",
+            "url": "https://lumen.atlas.invalid/program",
+            "source_hash": "416008d84494881c08fe0747b188a4b4dcc92ad6caa82a816d8457dcf3baf966",
+            "synthetic": true
+          }
+        }
+      ],
+      "decision_trace": [
+        {
+          "summary": "Inspect the supplied synthetic program source first",
+          "action": "fetch",
+          "target_id": "6f179933-73c9-47e6-9d08-c1372324e748",
+          "question_id": "q2",
+          "query": null,
+          "plan_revision": 1
+        },
+        {
+          "summary": "Inspect the linked financial handbook because proof-of-funds evidence is missing",
+          "action": "fetch",
+          "target_id": "b14b5988-3d22-4556-942b-aa36c0c0c6f3",
+          "question_id": "q2",
+          "query": null,
+          "plan_revision": 2
+        },
+        {
+          "summary": "No further in-scope fixture sources remain; report supported findings, conflicts, and unanswered questions",
+          "action": "stop",
+          "target_id": null,
+          "question_id": null,
+          "query": null,
+          "plan_revision": 2
+        }
+      ]
+    }
+  ],
+  "semantic_controls": {
+    "provenance": "Engineer-authored synthetic adversarial controls; not independent human annotations or real-model results.",
+    "cases": [
+      {
+        "case": "positive",
+        "expected": "fully_supported",
+        "actual": "fully_supported",
+        "reason": "bounded_context_checks_passed"
+      },
+      {
+        "case": "wrong-financial-field",
+        "expected": "unsupported",
+        "actual": "unsupported",
+        "reason": "wrong_or_unestablished_predicate"
+      },
+      {
+        "case": "adjacent-wrong-field",
+        "expected": "unsupported",
+        "actual": "unsupported",
+        "reason": "wrong_or_unestablished_predicate"
+      },
+      {
+        "case": "fabricated-quote",
+        "expected": "unsupported",
+        "actual": "unsupported",
+        "reason": "invalid_citation_or_value"
+      },
+      {
+        "case": "hidden-negation",
+        "expected": "contradicted",
+        "actual": "contradicted",
+        "reason": "omitted_negation"
+      },
+      {
+        "case": "retained-negation",
+        "expected": "fully_supported",
+        "actual": "fully_supported",
+        "reason": "bounded_context_checks_passed"
+      },
+      {
+        "case": "cropped-negation",
+        "expected": "contradicted",
+        "actual": "contradicted",
+        "reason": "omitted_negation"
+      },
+      {
+        "case": "conditional-award",
+        "expected": "partially_supported",
+        "actual": "partially_supported",
+        "reason": "omitted_condition"
+      },
+      {
+        "case": "retained-condition",
+        "expected": "fully_supported",
+        "actual": "fully_supported",
+        "reason": "bounded_context_checks_passed"
+      },
+      {
+        "case": "next-line-condition",
+        "expected": "partially_supported",
+        "actual": "partially_supported",
+        "reason": "omitted_condition"
+      },
+      {
+        "case": "maximum-is-not-guarantee",
+        "expected": "partially_supported",
+        "actual": "partially_supported",
+        "reason": "omitted_condition"
+      },
+      {
+        "case": "applicant-subgroup",
+        "expected": "partially_supported",
+        "actual": "partially_supported",
+        "reason": "applicant_restriction_not_retained"
+      },
+      {
+        "case": "missing-scope",
+        "expected": "insufficient_evidence",
+        "actual": "insufficient_evidence",
+        "reason": "scope_not_established"
+      },
+      {
+        "case": "outdated-intake",
+        "expected": "insufficient_evidence",
+        "actual": "insufficient_evidence",
+        "reason": "outdated_or_other_intake"
+      },
+      {
+        "case": "source-injection",
+        "expected": "insufficient_evidence",
+        "actual": "insufficient_evidence",
+        "reason": "source_instruction_not_factual_evidence"
+      },
+      {
+        "case": "irrelevant-injection-not-executed",
+        "expected": "fully_supported",
+        "actual": "fully_supported",
+        "reason": "bounded_context_checks_passed"
+      },
+      {
+        "case": "ambiguous-exact-quote",
+        "expected": "unsupported",
+        "actual": "unsupported",
+        "reason": "invalid_citation_or_value"
+      },
+      {
+        "case": "unknown-field",
+        "expected": "unsupported",
+        "actual": "unsupported",
+        "reason": "wrong_or_unestablished_predicate"
+      }
+    ],
+    "correct": 18,
+    "total": 18
+  },
+  "limitations": [
+    "A/B/C share extraction/verification; A/B use fixed document schedules.",
+    "Frozen replay tests research over snapshots, not live discovery/availability.",
+    "Synthetic controls are authored; authentic scores need independent review.",
+    "Conflict/unknown metrics compare fields, not per-applicant semantic judgments.",
+    "Null means unmeasured or undefined, not zero cost or successful quality.",
+    "Latency includes persistence; no statistical performance claim is made."
+  ]
+}

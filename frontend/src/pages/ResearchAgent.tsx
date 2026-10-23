@@ -5,18 +5,18 @@ import {
   Check,
   ChevronDown,
   CircleStop,
-  ExternalLink,
   FileSearch,
   FlaskConical,
   Play,
   RotateCw,
   ShieldCheck,
-  X,
 } from 'lucide-react'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { api, formatDate, useResource } from '../api'
 import { ErrorBox, Loading } from '../components/ui'
+import { SavedSource } from '../components/ResearchSource'
+import { ResearchReview } from '../components/ResearchReview'
 import { useWorkspace } from '../components/workspace'
 import { DEMO_OBJECTIVE, researchLabels, terminal, useResearchRun } from '../research'
 import type {
@@ -36,91 +36,17 @@ export function ResearchState({ state }: { state: string }) {
     contradictory: 'Conflicting',
     unverified: 'Unverified',
     unknown: 'Unknown',
+    fully_supported: 'Fully supported · rule screen',
+    partially_supported: 'Partially supported',
+    unsupported: 'Unsupported',
+    contradicted: 'Contradicted',
+    insufficient_evidence: 'Insufficient evidence',
   }
   return (
     <span className={`research-badge research-${state}`}>
       <span className="status-dot" />
       {names[state] ?? state}
     </span>
-  )
-}
-
-function SavedSource({
-  runId,
-  document,
-  excerpt,
-  close,
-}: {
-  runId: string
-  document: ResearchDocument
-  excerpt?: ResearchSnippet
-  close: () => void
-}) {
-  const { data, error } = useResource<{ text: string }>(
-    `/research/runs/${runId}/documents/${document.id}`,
-  )
-  const dialog = useRef<HTMLDialogElement>(null)
-  useEffect(() => {
-    dialog.current?.showModal()
-  }, [])
-  return (
-    <dialog
-      ref={dialog}
-      className="research-source-dialog"
-      aria-label="Saved source inspector"
-      onCancel={close}
-    >
-      <section className="panel research-inspector" aria-label="Saved source inspector">
-        <div className="section-heading">
-          <div>
-            <div className="eyebrow">
-              SAVED EVIDENCE · {document.synthetic ? 'SYNTHETIC' : 'IMPORTED SOURCE'}
-            </div>
-            <h3>{document.title}</h3>
-          </div>
-          <button className="icon-btn" aria-label="Close source inspector" onClick={close}>
-            <X size={19} />
-          </button>
-        </div>
-        <p className="research-url">{document.url}</p>
-        <p className="muted">
-          Retrieved {formatDate(document.fetched_at)} · Last network verification{' '}
-          {formatDate(document.last_checked_at)}
-          {document.synthetic && ' · Fixture timestamps, no network request'}
-        </p>
-        <code className="source-hash">SHA-256 {document.sha256}</code>
-        {excerpt && (
-          <div className="selected-excerpt">
-            <strong>
-              {excerpt.purpose === 'scope' ? 'Program / intake scope' : 'Supporting excerpt'}
-            </strong>
-            <blockquote>{excerpt.quote}</blockquote>
-            <small>
-              Characters {excerpt.start}–{excerpt.end}
-              {excerpt.location.page ? ` · PDF page ${excerpt.location.page}` : ''} · Exact span in
-              normalized source text
-            </small>
-          </div>
-        )}
-        {error ? (
-          <ErrorBox error={error} />
-        ) : data ? (
-          <details>
-            <summary>
-              Inspect full saved text <ChevronDown size={14} />
-            </summary>
-            <pre>{data.text}</pre>
-          </details>
-        ) : (
-          <Loading />
-        )}
-        {!document.synthetic && (
-          <a href={document.url} target="_blank" rel="noreferrer" className="text-link">
-            Open original source <ExternalLink size={13} />
-          </a>
-        )}
-      </section>
-    </dialog>
   )
 }
 
@@ -141,8 +67,8 @@ function EvidenceView({ runId, evidence }: { runId: string; evidence: ResearchEv
         <span className="muted">{evidence.claims.length} extracted candidates</span>
       </div>
       <p className="muted">
-        Exact quotations are checked mechanically. “Source-supported” does not establish source
-        truth, official ownership, or complete eligibility.
+        Exact citations and a conservative English support screen are separate checks. These checks
+        do not establish truth, official ownership, or complete eligibility.
       </p>
       {evidence.claims.length > 0 ? (
         <div className="research-claim-list">
@@ -155,7 +81,20 @@ function EvidenceView({ runId, evidence }: { runId: string; evidence: ResearchEv
               <p>{claim.value}</p>
               <small>
                 {claim.scope.program} · {claim.scope.intake_year ?? 'Intake unknown'}
+                {claim.scope.award_track && ` · ${claim.scope.award_track}`}
+                {claim.scope.applicant_group && ` · ${claim.scope.applicant_group}`}
               </small>
+              <p>
+                <ResearchState
+                  state={claim.semantic_assessment?.label ?? 'insufficient_evidence'}
+                />
+              </p>
+              {claim.state === 'unverified' && (
+                <p className="muted">
+                  Excluded from report findings. A real quote can still fail to support the proposed
+                  meaning.
+                </p>
+              )}
               <div className="research-citation-row">
                 {claim.evidence_id ? (
                   <>
@@ -176,6 +115,12 @@ function EvidenceView({ runId, evidence }: { runId: string; evidence: ResearchEv
               <details>
                 <summary>Verification note</summary>
                 <p>{claim.verification_note}</p>
+                {claim.semantic_assessment?.passage && (
+                  <blockquote>{claim.semantic_assessment.passage}</blockquote>
+                )}
+                {claim.semantic_assessment?.resolution && (
+                  <p>{claim.semantic_assessment.resolution}</p>
+                )}
               </details>
             </article>
           ))}
@@ -280,6 +225,48 @@ function ReportView({
         <ResearchState state={report.outcome} />
       </div>
       <p className="report-summary">{report.executive_summary}</p>
+      {(report.temporal_warnings?.length ?? 0) > 0 && (
+        <section>
+          <h3>Dates requiring attention</h3>
+          {report.temporal_warnings?.map((w) => (
+            <p key={w.claim_id}>
+              {w.value}: {w.warning} Checked against {w.as_of_date}.
+            </p>
+          ))}
+        </section>
+      )}
+      {report.question_assessments && (
+        <section className="research-sufficiency">
+          <h3>Evidence sufficiency by question</h3>
+          <p className="muted">
+            Field coverage is checked. Natural-language completion criteria still need human review.
+          </p>
+          {report.question_assessments.map((q, i) => (
+            <details key={i}>
+              <summary>
+                {q.question} · {q.status.replaceAll('_', ' ')}
+              </summary>
+              {q.fields.map((f) => (
+                <p key={f.field}>
+                  {researchLabels[f.field] ?? f.field}: {f.status.replaceAll('_', ' ')}.{' '}
+                  {f.resolution}
+                </p>
+              ))}
+            </details>
+          ))}
+        </section>
+      )}
+      {(report.context_differences?.length ?? 0) > 0 && (
+        <section>
+          <h3>Differences in applicability or source version</h3>
+          {report.context_differences?.map((d, i) => (
+            <p key={i}>
+              {researchLabels[d.field] ?? d.field}: {d.relation.replaceAll('_', ' ')}.{' '}
+              {d.resolution}
+            </p>
+          ))}
+        </section>
+      )}
       {report.synthetic && (
         <p className="research-demo-note">
           <FlaskConical size={17} />
@@ -377,7 +364,7 @@ function ReportView({
 
 function RunWorkspace({ id, finished }: { id: string; finished: () => void }) {
   const { run, evidence, report, error } = useResearchRun(id, finished)
-  const [tab, setTab] = useState<'progress' | 'evidence' | 'report'>('progress')
+  const [tab, setTab] = useState<'progress' | 'evidence' | 'report' | 'review'>('progress')
   const [cancelling, setCancelling] = useState(false)
   const { notify } = useWorkspace()
   async function cancel() {
@@ -461,6 +448,13 @@ function RunWorkspace({ id, finished }: { id: string; finished: () => void }) {
           onClick={() => setTab('report')}
         >
           Report {report && <Check size={13} />}
+        </button>
+        <button
+          className={tab === 'review' ? 'selected' : ''}
+          disabled={!report}
+          onClick={() => setTab('review')}
+        >
+          Review changes
         </button>
       </div>
       <section className="panel research-result-panel">
@@ -564,6 +558,8 @@ function RunWorkspace({ id, finished }: { id: string; finished: () => void }) {
           </>
         ) : tab === 'evidence' && evidence ? (
           <EvidenceView runId={id} evidence={evidence} />
+        ) : tab === 'review' && evidence && report ? (
+          <ResearchReview runId={id} evidence={evidence} report={report} />
         ) : tab === 'report' && report ? (
           <ReportView report={report} evidence={evidence} showEvidence={() => setTab('evidence')} />
         ) : (
@@ -591,6 +587,7 @@ export function ResearchAgent() {
     max_model_requests: 12,
     max_seconds: 120,
     max_output_tokens: 12000,
+    max_input_bytes: 240000,
   })
   const capabilities = useResource<Capabilities>('/research/capabilities')
   const history = useResource<ResearchRun[]>('/research/runs', historyRevision)
@@ -755,6 +752,12 @@ export function ResearchAgent() {
                       label: 'Output token reservation',
                       max: 24000,
                       min: 512,
+                    },
+                    {
+                      key: 'max_input_bytes',
+                      label: 'Model input size budget (bytes)',
+                      max: 480000,
+                      min: 1024,
                     },
                   ] as const
                 ).map((item) => (

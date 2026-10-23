@@ -28,6 +28,7 @@ class RunLimits(StrictModel):
     max_network_requests: int = Field(default=24, ge=1, le=40)
     max_model_requests: int = Field(default=12, ge=1, le=24)
     max_output_tokens: int = Field(default=12000, ge=512, le=24000)
+    max_input_bytes: int = Field(default=240000, ge=1024, le=480000)
     max_seconds: int = Field(default=120, ge=1, le=180)
 
 
@@ -41,6 +42,7 @@ class RunInput(StrictModel):
     limits: RunLimits = Field(default_factory=RunLimits)
     allow_model_requests: bool = False
     demo_scenario: Literal["funding_gap", "conflict", "insufficient"] = "funding_gap"
+    target_intake_year: int | None = Field(default=None, ge=2020, le=2100)
 
     @field_validator("seed_urls")
     @classmethod
@@ -104,6 +106,9 @@ class Decision(StrictModel):
 class ClaimScope(StrictModel):
     program: str = Field(min_length=2, max_length=200)
     intake_year: int | None = Field(default=None, ge=2020, le=2100)
+    award_track: str | None = Field(default=None, min_length=2, max_length=150)
+    applicant_group: str | None = Field(default=None, min_length=2, max_length=150)
+    source_version: str | None = Field(default=None, min_length=2, max_length=100)
 
 
 class ClaimCandidate(StrictModel):

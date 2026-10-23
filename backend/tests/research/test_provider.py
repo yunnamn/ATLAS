@@ -155,3 +155,73 @@ def test_invalid_starting_urls_return_a_safe_configuration_error() -> None:
         )
         with pytest.raises(ResearchError):
             prepare_request(request, configured())
+
+
+def test_invalid_schema_still_records_usage_and_retries_consume_input_budget(sessions) -> None:
+    def handler(request):
+        return httpx.Response(
+            200,
+            json={
+                "choices": [{"message": {"content": "not JSON"}}],
+                "usage": {"prompt_tokens": 100, "completion_tokens": 40},
+            },
+        )
+
+    run_id = make_run(sessions)
+    budget = Budget(sessions, run_id, RunLimits())
+    with pytest.raises(ResearchError):
+        OpenAICompatibleProvider(configured(), httpx.MockTransport(handler)).generate(
+            Decision,
+            "DECIDE",
+            {},
+            budget,
+        )
+    with sessions() as s:
+        stats = s.get(ResearchRun, run_id).stats
+        assert stats["input_tokens_reported"] == 200 and stats["output_tokens_reported"] == 80
+        assert stats["usage_reported_requests"] == 2
+        assert stats["input_bytes_reserved"] > 0 and stats["invalid_provider_responses"] == 2
+
+
+def test_model_input_budget_blocks_before_any_http_request(sessions) -> None:
+    from atlas.research.errors import BudgetExhausted
+
+    calls = []
+    budget = Budget(sessions, make_run(sessions), RunLimits(max_input_bytes=1024))
+    with pytest.raises(BudgetExhausted, match="input byte budget"):
+        OpenAICompatibleProvider(
+            configured(), httpx.MockTransport(lambda r: calls.append(r))
+        ).generate(
+            Decision,
+            "DECIDE",
+            {},
+            budget,
+        )
+    assert calls == []
+
+
+def test_truncated_output_is_not_treated_as_a_valid_decision(sessions) -> None:
+    def handler(request):
+        return httpx.Response(
+            200,
+            json={
+                "choices": [
+                    {
+                        "finish_reason": "length",
+                        "message": {
+                            "content": '{"action":"stop","summary":"Truncated response"}',
+                        },
+                    }
+                ],
+                "usage": {"prompt_tokens": 100, "completion_tokens": 40},
+            },
+        )
+
+    budget = Budget(sessions, make_run(sessions), RunLimits())
+    with pytest.raises(ResearchError, match="completion limit"):
+        OpenAICompatibleProvider(configured(), httpx.MockTransport(handler)).generate(
+            Decision,
+            "DECIDE",
+            {},
+            budget,
+        )

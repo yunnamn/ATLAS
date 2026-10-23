@@ -63,3 +63,33 @@ Document exact startup commands, tradeoffs, and limits. Run meaningful automated
 - Final automated checks: 105 backend tests, 10 frontend unit tests, 16 browser/accessibility tests; lint/type/format/build/schema checks passed. Three offline scenarios measured against separately labeled gold data; actual results are in docs/evaluation-results.json.
 - User chose offline verification. Real-provider HTTP protocol mechanics are tested with controlled responses; actual real-model semantic planning/tool selection and real-site connectivity remain unverified. No paid/model calls, unrestricted crawling, deployment or publication were performed.
 - Existing Task 1 database rows were compared with the pre-migration snapshot and remain unchanged. New research artifacts stay in separate tables. See docs/AGENT_ARCHITECTURE.md, docs/THREAT_MODEL.md and docs/EVALUATION.md for complete operating instructions and limits.
+
+# Task 3 — Evidence quality and defensible evaluation
+
+## Baseline and preservation
+- Task 2 source verified at `9e22afc`; clean checkout, personal `yunnamn/ATLAS` remote. Work continues on `feature/research-intelligence`.
+- Before changes: 105 backend tests, 10 frontend unit tests and 16 browser/accessibility tests passed; frontend type/lint/build passed. Existing SQLite backed up outside Git before additive migration.
+- No model endpoint is configured. Continue the user's offline preference; do not perform billable inference. Real-model quality cannot be validated here.
+
+## Milestones and acceptance
+1. Add exact-span-preserving, conservative semantic assessments (five support labels), contextual scope dimensions, question-level evidence sufficiency and ranked candidate explanations. Reject redundant searches/extractions and record explicit uncertainty. Acceptance: adversarial context/negation/staleness and scope/version tests; Task 2 regressions pass.
+2. Add reproducible A supplied-document / B fixed retrieval / C adaptive graph experiments with frozen corpus manifests, provenance, annotation gates, null unmeasurable metrics, token/cost/latency accounting and failure analysis. Keep synthetic controls separate from authentic unannotated documents. Acceptance: run all three offline controls; no manufactured human labels or real-model scores.
+3. Add persisted proposed changes, citation inspection, selected-field approval, transactional application and stale-revision protection. Acceptance: no opportunity is changed before explicit approval; synthetic labels and original evidence survive; conflicting/unsupported findings cannot become verified records; browser review works.
+4. Run full backend/frontend/browser/security/migration/evaluation checks, document actual results and remaining prerequisites, inspect source-only Git diff, commit and synchronize the personal feature branch.
+
+## Verification
+`cd backend && .venv/bin/pytest -q && .venv/bin/ruff check . && .venv/bin/ruff format --check . && .venv/bin/mypy atlas && .venv/bin/alembic check`
+
+`cd frontend && npm run check && npm run format:check && npm test && npm run build && npm run test:e2e`
+
+Offline evaluation and benchmark commands will be recorded with their measured output. Live requests remain opt-in; independent real-document annotations and an approved model are prerequisites for defensible model comparisons.
+
+## Task 3 completion evidence
+- Implemented five-label bounded support screening with independent exact citations, explicit uncertainty/resolution, question-level coverage, award/applicant/intake/version comparisons, source priorities and expired-date advisories. General semantic entailment and real-model planning quality remain unverified.
+- Added cumulative input budgets, usage retention for invalid outputs, truncated-response handling, bounded decision observations with full-ledger dispatch, and duplicate query/window/content controls.
+- Implemented A/B/C frozen-corpus experiments with provenance/hashes, prediction spans, observable traces, raw/screened extraction metrics, annotation gates, null unknown metrics, usage/cost/latency and failure analysis. Nine synthetic runs measured A 27/35, B 35/35, C 35/35; no agent advantage over curated fixed retrieval. Eighteen authored semantic controls passed.
+- Added migration 0003, proposal APIs, selected-field human approval in one transaction, stale/duplicate/conflict/synthetic guards, source inspection and desktop/mobile review UI. Original prose requirements have dedicated directory fact keys.
+- Final checks passed: 153 backend tests, Ruff/format/mypy (31 application files), 10 frontend unit tests, TypeScript/ESLint/Prettier/build and 18 Chromium browser/axe tests. Task 2 three-scenario evaluation passed again. No model calls were made.
+- Repeat setup and documented dev script worked. Health, Vite/API proxy, disabled live capabilities, new metadata and legacy review endpoints passed a live local smoke. Alembic drift check passed. All original rows/columns in 14 existing tables match the external pre-Task 3 backup; no original records were altered.
+- Official Erasmus page capture failed with public DNS resolution failure. No authentic corpus or independently reviewed labels were obtained; no network-policy workaround or paid inference was attempted. Real-source/model acceptance remains open.
+- Startup draft updated for Task 3; this does not publish a snapshot or prove fresh-task restoration. See docs/TASK3_RESULTS.md and docs/REAL_WORLD_EVALUATION.md for measured evidence, operating instructions and Task 4 priorities.

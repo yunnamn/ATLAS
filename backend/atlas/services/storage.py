@@ -67,7 +67,13 @@ def import_records(session: Session, records: list[OpportunityInput]) -> dict[st
 
 
 def update_fact(
-    session: Session, row: Opportunity, payload: dict[str, Any], actor: str, reason: str
+    session: Session,
+    row: Opportunity,
+    payload: dict[str, Any],
+    actor: str,
+    reason: str,
+    *,
+    commit: bool = True,
 ) -> None:
     before = row.payload
     row.payload = payload
@@ -83,4 +89,5 @@ def update_fact(
             after=payload,
         )
     )
-    session.commit()
+    if commit:
+        session.commit()

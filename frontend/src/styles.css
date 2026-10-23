@@ -4022,6 +4022,7 @@ form > label {
 .research-tabs {
   margin: 22px 0 16px;
   gap: 20px;
+  flex-wrap: wrap;
 }
 .research-tabs > button {
   font-size: 12px;
@@ -4670,4 +4671,71 @@ form > label {
   .research-demo-note {
     font-size: 10px;
   }
+}
+
+.research-fully_supported {
+  color: #245b34;
+  background: #edf5e8;
+}
+.research-partially_supported {
+  color: #80501c;
+  background: #fff0d4;
+}
+.research-unsupported,
+.research-contradicted {
+  color: #803536;
+  background: #fbeceb;
+}
+.research-insufficient_evidence {
+  color: #505c49;
+  background: #eef0ea;
+}
+.research-proposal,
+.research-sufficiency {
+  margin: 22px 0;
+  padding: 20px 0;
+  border-top: 1px solid #dfe6d6;
+}
+.research-review p,
+.research-review label,
+.research-sufficiency p {
+  overflow-wrap: anywhere;
+  line-height: 1.7;
+}
+.research-review .form-grid > label,
+.research-review .form-grid input,
+.research-review .form-grid select {
+  min-width: 0;
+}
+.research-proposal-changes > section {
+  padding: 15px 0;
+  border-bottom: 1px solid #e5eadf;
+}
+.research-proposal details,
+.research-sufficiency details {
+  margin: 14px 0;
+}
+.research-proposal blockquote {
+  border-left: 3px solid #789264;
+  padding-left: 14px;
+  margin: 16px 0;
+}
+.research-proposal-source {
+  margin-top: 16px;
+  padding: 14px;
+  background: #f7f9f2;
+}
+.research-proposal-form > label > textarea {
+  width: 100%;
+  min-height: 90px;
+  border: 1px solid #dfe6d6;
+  border-radius: 4px;
+  padding: 11px;
+  background: #fffefa;
+}
+.research-proposal .checkbox-panel input {
+  flex-shrink: 0;
+}
+.research-proposal .checkbox-panel {
+  align-items: start;
 }

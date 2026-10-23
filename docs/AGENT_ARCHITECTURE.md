@@ -2,6 +2,8 @@
 
 Task 2 extends the existing application. The opportunity directory, profile/matching, shortlist, manual imports, and human review history remain separate and operational. Research is not automatically promoted into reviewed opportunities.
 
+Task 3 extends this design without replacing the graph. See [REAL_WORLD_EVALUATION.md](REAL_WORLD_EVALUATION.md) for support screening, bounded observations, scope comparisons, A/B/C methodology, annotation gates and transactional human approval. Actual measurements and unresolved live prerequisites are in [TASK3_RESULTS.md](TASK3_RESULTS.md).
+
 ## Execution and decisions
 
 ```mermaid
@@ -52,9 +54,10 @@ Migration `0002` only adds research tables; it does not rewrite Task 1 tables/da
 | research_documents | Reusable source versions: canonical URL + raw SHA-256, original bytes, normalized text, links, PDF page spans, retrieval/check dates |
 | research_sources | Per-run source use, retrieval failures, cache usage, document links |
 | research_evidence | Exact normalized-text offsets/excerpts, document version, support or scope purpose, location metadata |
-| research_claims | Model candidate value/scope, proposed quotes, validated evidence IDs, verification state, canonical comparison value |
+| research_claims | Model candidate value/scope, proposed quotes, exact evidence IDs, separate semantic assessment, verification state, canonical comparison value |
 | research_contradictions | Two cited claim IDs, field and observable conflict summary |
 | research_reports | Frozen structured final/partial report per run |
+| research_proposals | Separate proposed changes, target revision, evidence snapshot, explicit selected-field human approval and outcome |
 
 Short-term run state and events are separate from reusable document versions. Within the cache TTL (default one hour), unchanged saved evidence can be reused across live runs; scope and robots policy are rechecked first, including a cached redirect target. Reuse preserves the last actual network-check timestamp. A fresh equal-hash retrieval updates `last_checked_at`; changed bytes create a new version. Cache reuse is not proof that a site remains unchanged. Demo fixture content is never reused through the live source cache.
 
@@ -64,11 +67,11 @@ Short-term run state and events are separate from reusable document versions. Wi
 
 - **source_supported**: exact support and scope quotations resolve to stored text; the value occurs in the quote; basic negation/qualifier omission checks pass. This is mechanical support, not semantic entailment or a truth guarantee.
 - **corroborated**: compatible supported claims occur in distinct content hashes and explicitly caller-declared independent authority groups. This depends on the caller's independence assertions, not domain guessing or LLM agreement.
-- **unverified**: candidate quotation, value or scope cannot be validated. These candidates never enter report findings.
+- **unverified**: citation/value/scope fails, or the separate semantic screen rejects or cannot establish support. Valid evidence IDs can remain inspectable even when meaning fails. These candidates never enter report findings or approval proposals.
 - **contradictory**: supported same-program/same-intake claims have conflicting conservative values. Both remain cited; no winner is chosen automatically. Different intakes/currencies are not compared as though equivalent.
 - **unknown**: a required plan field lacks supported evidence. Unknowns are report entries, not invented claims.
 
-Comparisons currently support a small exact vocabulary for tuition coverage and proof of funds, ISO deadlines, and same-currency numeric application fees. Complex conditional prose may contain unresolved differences that are not automatically labeled contradictory. Award tracks and applicant subgroups are not yet full scope dimensions. Human source/context review remains required.
+Comparisons support a small exact vocabulary for tuition coverage and proof of funds, ISO deadlines, and same-currency numeric application fees. Task 3 adds explicitly cited award tracks, applicant groups and source versions. Differences in these dimensions and changed same-URL versions are contextual differences; no newer source wins automatically. Complex conditional prose may contain unresolved differences that are not automatically labeled contradictory. Human source/context review remains required. Five semantic labels use conservative English context rules, not general entailment or independently verified truth.
 
 ## Worker and budgets
 
@@ -86,6 +89,7 @@ Default/hard-maximum budgets:
 | Network requests, including robots/redirect/search | 24 | 40 |
 | Provider requests including retries | 12 | 24 |
 | Reserved completion tokens across provider attempts | 12,000 | 24,000 |
+| Serialized model input bytes across attempts | 240,000 | 480,000 |
 | Elapsed seconds | 120 | 180 |
 
 Provider output allocation defaults to 1,800 tokens/request, bounded by remaining reservation; this is an upper reservation, not actual billed usage. Reported prompt/completion tokens are separate counters. Missing usage metadata is explicitly counted; ATLAS does not invent input token accounting or dollar costs. Offline provider-request/reservation counters represent fixture operations; real model and network request counts are zero. Source candidates are capped at 40, links inspected per document at 100, downloads at 2 MiB, normalized source text at 100,000 characters, and model input at 55,000 characters including schema/context.
@@ -155,4 +159,4 @@ Replace the example URL/objective with an accessible, approved real source. The 
 
 ## Next engineering milestone
 
-Task 3 should first validate several approved live models/sites and evaluate model extraction against a larger human-labeled corpus. Then add award/track/applicant scope, semantic/context review, scoped retrieval windows, reviewed promotion into the directory, source diffs, and a durable job queue with idempotent, explicitly authorized resumption. Authentication and stronger parser isolation are prerequisites for public hosting.
+Task 4 should obtain approved live model/site connectivity and an independently reviewed authentic reference corpus, then execute repeated A/B/C trials and improve general semantic/section/condition handling against held-out errors. Source diffs and a durable job queue with idempotent, explicitly authorized resumption remain future work. Authentication and stronger parser isolation are prerequisites for public hosting.

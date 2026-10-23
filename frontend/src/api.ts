@@ -57,6 +57,9 @@ export const labels: Record<string, string> = {
   eligible_nationalities: 'Eligible nationalities',
   required_degree: 'Required degree',
   application_url: 'Application URL',
+  eligibility_conditions: 'Eligibility conditions',
+  language_requirements: 'Language requirements',
+  scholarship_obligations: 'Scholarship obligations',
 }
 export function factValue(value: string | null | undefined): string {
   if (!value) return 'Unknown'

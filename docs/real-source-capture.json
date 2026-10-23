@@ -1,0 +1,7 @@
+{
+  "status": "blocked",
+  "url": "https://erasmus-plus.ec.europa.eu/opportunities/opportunities-for-individuals/students/erasmus-mundus-joint-masters",
+  "code": "dns_failed",
+  "message": "Public DNS resolution failed",
+  "attempted_at": "2026-10-23T09:35:24.495803+00:00"
+}

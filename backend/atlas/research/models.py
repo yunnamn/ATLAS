@@ -140,6 +140,24 @@ class ExtractedClaim(Base):
     state: Mapped[str] = mapped_column(String(30), default="unverified")
     normalized_value: Mapped[str | None] = mapped_column(String(200), nullable=True)
     verification_note: Mapped[str] = mapped_column(String(300), default="Not yet checked")
+    semantic_assessment: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
+
+
+class ResearchProposal(Base):
+    __tablename__ = "research_proposals"
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=uid)
+    run_id: Mapped[str] = mapped_column(ForeignKey("research_runs.id"), index=True)
+    target_opportunity_id: Mapped[int | None] = mapped_column(
+        ForeignKey("opportunities.id"), nullable=True
+    )
+    expected_opportunity_revision: Mapped[int | None] = mapped_column(nullable=True)
+    status: Mapped[str] = mapped_column(String(20), default="pending")
+    revision: Mapped[int] = mapped_column(default=1)
+    __mapper_args__ = {"version_id_col": revision}
+    content: Mapped[dict[str, Any]] = mapped_column(JSON)
+    approval: Mapped[dict[str, Any] | None] = mapped_column(JSON, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+    reviewed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
 
 class Contradiction(Base):

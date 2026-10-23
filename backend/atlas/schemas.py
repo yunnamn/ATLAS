@@ -25,6 +25,9 @@ class FactKey(StrEnum):
     eligible_nationalities = "eligible_nationalities"
     required_degree = "required_degree"
     application_url = "application_url"
+    eligibility_conditions = "eligibility_conditions"
+    language_requirements = "language_requirements"
+    scholarship_obligations = "scholarship_obligations"
 
 
 FACT_LABELS = {
@@ -42,6 +45,9 @@ FACT_LABELS = {
     "eligible_nationalities": "Eligible nationalities (ISO codes or all)",
     "required_degree": "Required degree",
     "application_url": "Application URL",
+    "eligibility_conditions": "Eligibility conditions (source wording)",
+    "language_requirements": "Language requirements (source wording)",
+    "scholarship_obligations": "Scholarship obligations (source wording)",
 }
 
 

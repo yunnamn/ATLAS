@@ -21,6 +21,8 @@ jobs:
         working-directory: backend
       - run: .venv/bin/python -m atlas.research.evaluate
         working-directory: backend
+      - run: .venv/bin/python -m atlas.research.benchmark --output /tmp/atlas-benchmark.json
+        working-directory: backend
       - run: npm run check && npm run format:check && npm test && npm run build
         working-directory: frontend
       - run: PLAYWRIGHT_BROWSERS_PATH=/tmp/atlas-playwright npx playwright install --with-deps chromium

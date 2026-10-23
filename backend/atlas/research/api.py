@@ -1,8 +1,11 @@
 from typing import Annotated, Any, cast
 
 from fastapi import APIRouter, Depends, HTTPException, Query, Request
+from pydantic import ValidationError
 from sqlalchemy import select
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
+from sqlalchemy.orm.exc import StaleDataError
 
 from atlas.config import settings
 from atlas.db import get_session, utc_iso
@@ -10,11 +13,19 @@ from atlas.research.errors import ResearchError
 from atlas.research.manager import ResearchManager, capabilities
 from atlas.research.models import (
     ResearchPlan,
+    ResearchProposal,
     ResearchReport,
     ResearchRun,
     ResearchStep,
     RunSource,
     SourceDocument,
+)
+from atlas.research.proposals import (
+    ProposalApproval,
+    ProposalInput,
+    approve,
+    proposal_dict,
+    propose,
 )
 from atlas.research.reporting import ledger
 from atlas.research.schemas import RunInput
@@ -152,6 +163,7 @@ def get_evidence(run_id: str, session: DB) -> dict[str, Any]:
                 "evidence_id": c.evidence_id,
                 "scope_evidence_id": c.scope_evidence_id,
                 "verification_note": c.verification_note,
+                "semantic_assessment": c.semantic_assessment,
             }
             for c in data["claims"]
         ],
@@ -165,6 +177,8 @@ def get_evidence(run_id: str, session: DB) -> dict[str, Any]:
             for c in data["contradictions"]
         ],
         "unknowns": data["missing"],
+        "question_assessments": data["question_assessments"],
+        "context_differences": data["context_differences"],
     }
 
 
@@ -204,3 +218,45 @@ def cancel_run(run_id: str, manager: Manager, session: DB) -> dict[str, str]:
     get_run(session, run_id)
     manager.cancel(run_id)
     return {"id": run_id, "status": "cancellation_requested"}
+
+
+@router.get("/runs/{run_id}/proposals")
+def list_proposals(run_id: str, session: DB) -> list[dict[str, Any]]:
+    get_run(session, run_id)
+    return [
+        proposal_dict(row)
+        for row in session.scalars(
+            select(ResearchProposal)
+            .where(ResearchProposal.run_id == run_id)
+            .order_by(ResearchProposal.created_at.desc())
+            .limit(50)
+        )
+    ]
+
+
+@router.post("/runs/{run_id}/proposals", status_code=201)
+def create_proposal(run_id: str, data: ProposalInput, session: DB) -> dict[str, Any]:
+    return proposal_dict(propose(session, get_run(session, run_id), data))
+
+
+@router.post("/runs/{run_id}/proposals/{proposal_id}/approve")
+def approve_proposal(
+    run_id: str,
+    proposal_id: str,
+    data: ProposalApproval,
+    session: DB,
+) -> dict[str, Any]:
+    get_run(session, run_id)
+    proposal = session.get(ResearchProposal, proposal_id)
+    if not proposal or proposal.run_id != run_id:
+        raise HTTPException(404, "Proposal not found for this run")
+    try:
+        return proposal_dict(approve(session, proposal, data))
+    except (IntegrityError, StaleDataError) as exc:
+        session.rollback()
+        raise HTTPException(
+            409, "Record identity/revision changed; inspect before retrying"
+        ) from exc
+    except ValidationError as exc:
+        session.rollback()
+        raise HTTPException(422, "Proposed record exceeds directory schema constraints") from exc

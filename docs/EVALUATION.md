@@ -1,5 +1,7 @@
 # Task 2 evaluation
 
+This is the preserved Task 2 baseline record. Task 3 results, A/B/C controls and current limits are documented in [TASK3_RESULTS.md](TASK3_RESULTS.md) and [REAL_WORLD_EVALUATION.md](REAL_WORLD_EVALUATION.md). No authentic, independently annotated real-model benchmark has been completed.
+
 ## Scope and provenance of results
 
 All results below were executed locally against the implementation. The user selected **offline demo for now**; no actual model endpoint, paid service, real website investigation, broad search backend or real research claims were used. A functioning OpenAI-compatible adapter exists and is exercised with a controlled HTTP model fixture. Real LLM planning/tool selection/extraction quality and direct real-site source retrieval are **unverified acceptance criteria**.

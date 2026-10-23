@@ -15,6 +15,7 @@ from atlas.research.budget import Budget
 from atlas.research.demo import DEMO_DOMAINS, DEMO_SEED
 from atlas.research.documents import DocumentContent
 from atlas.research.errors import BudgetExhausted, ResearchError, RunCancelled
+from atlas.research.intelligence import pack_observations, prioritize
 from atlas.research.models import (
     ExtractedClaim,
     ResearchCandidate,
@@ -198,7 +199,16 @@ class ResearchEngine:
             count = self.add_candidates(
                 session, links, "search" if state.get("action") == "search" else "seed"
             )
-            self.event(session, "DISCOVER", message, state, {"added_candidates": count})
+            self.event(
+                session,
+                "DISCOVER",
+                message,
+                state,
+                {
+                    "added_candidates": count,
+                    "query": state.get("query") if state.get("action") == "search" else None,
+                },
+            )
         return {"phase": "DISCOVER", "action": "stop"}
 
     def observations(self, session: Session) -> dict[str, Any]:
@@ -214,17 +224,48 @@ class ResearchEngine:
             )
         )
         can_fetch = int(run.stats.get("documents_examined", 0)) < self.request.limits.max_documents
-        return {
-            "candidates": [
-                {"id": c.id, "url": c.url, "title": c.title, "origin": c.origin} for c in candidates
-            ]
+        steps = list(
+            session.scalars(select(ResearchStep).where(ResearchStep.run_id == self.run_id))
+        )
+        extraction_counts = {
+            d.id: sum(s.node == "EXTRACT" and s.data.get("document_id") == d.id for s in steps)
+            for d in data["documents"].values()
+        }
+        documents = [
+            {
+                "id": d.id,
+                "url": d.url,
+                "title": d.title,
+                "character_count": len(d.text),
+                "extractions_remaining": max(0, 2 - extraction_counts[d.id]),
+            }
+            for d in data["documents"].values()
+        ]
+        observations = {
+            "candidates": prioritize(
+                candidates, self.request.objective, self.request.target_intake_year
+            )
             if can_fetch
             else [],
             "document_count": len(data["documents"]),
-            "documents": [
-                {"id": d.id, "url": d.url, "title": d.title, "character_count": len(d.text)}
-                for d in data["documents"].values()
+            "documents": documents,
+            "question_assessments": data["question_assessments"],
+            "context_differences": data["context_differences"],
+            "temporal_warnings": data["temporal_warnings"],
+            "evidence_assessments": [
+                {
+                    "claim_id": c.id,
+                    "field": c.field,
+                    **{k: v for k, v in c.semantic_assessment.items() if k != "passage"},
+                    "passage": c.semantic_assessment.get("passage", "")[:600],
+                }
+                for c in data["claims"]
+                if c.semantic_assessment.get("label") != "fully_supported"
+            ][:120],
+            "previous_queries": [
+                s.data["query"] for s in steps if s.node == "DISCOVER" and s.data.get("query")
             ],
+            "extracted_windows": [s.data for s in steps if s.node == "EXTRACT"],
             "claims": [
                 {
                     "field": c.field,
@@ -251,11 +292,13 @@ class ResearchEngine:
                     .limit(4)
                 )
             ],
-            "available_actions": ["stop", "reextract"]
+            "available_actions": ["stop"]
+            + (["reextract"] if any(d["extractions_remaining"] for d in documents) else [])
             + (["fetch"] if can_fetch and candidates else [])
             + (["search"] if self.search else []),
             "stats": run.stats,
         }
+        return observations
 
     def decide(self, state: WorkflowState) -> dict[str, Any]:
         self.budget.increment("iterations", self.request.limits.max_iterations)
@@ -275,7 +318,7 @@ class ResearchEngine:
             {
                 "objective": self.request.objective,
                 "plan": current_plan,
-                "observations": observations,
+                "observations": pack_observations(dict(observations)),
                 "limits": self.request.limits.model_dump(),
             },
             self.budget,
@@ -293,6 +336,10 @@ class ResearchEngine:
             rejected = "Re-extraction target must be a document already attached to this run"
         elif decision.action == "search" and not decision.query:
             rejected = "Search requires a nonempty query"
+        elif decision.action == "search" and " ".join(
+            (decision.query or "").casefold().split()
+        ) in {" ".join(q.casefold().split()) for q in observations["previous_queries"]}:
+            rejected = "This search query was already attempted; select a new investigation"
         elif decision.question_id and decision.question_id not in {
             q["id"] for q in current_plan["questions"]
         }:
@@ -302,6 +349,21 @@ class ResearchEngine:
             for d in observations["documents"]
         ):
             rejected = "Re-extraction window must start inside the selected document"
+        if decision.action == "reextract" and (
+            any(
+                d["id"] == decision.target_id and not d["extractions_remaining"]
+                for d in observations["documents"]
+            )
+            or any(
+                w.get("document_id") == decision.target_id
+                and w.get("window_start", 0) == decision.window_start
+                and w.get("question_id") == decision.question_id
+                for w in observations["extracted_windows"]
+            )
+        ):
+            rejected = (
+                "Document extraction budget exhausted or identical focus/window already inspected"
+            )
         if decision.revised_plan and not set(required_fields(plans)) <= {
             str(f) for q in decision.revised_plan.questions for f in q.fields
         }:
@@ -420,6 +482,12 @@ class ResearchEngine:
                     )
                 )
                 added = self.add_candidates(session, row.links, "link", row.id)
+                prior_extractions = session.scalars(
+                    select(ResearchStep).where(
+                        ResearchStep.run_id == self.run_id, ResearchStep.node == "EXTRACT"
+                    )
+                )
+                duplicate = any(s.data.get("source_hash") == row.sha256 for s in prior_extractions)
                 self.event(
                     session,
                     "FETCH",
@@ -427,9 +495,14 @@ class ResearchEngine:
                     if cached_id
                     else "Retrieved and normalized source content",
                     {**state, "document_id": row.id},
-                    {"document_id": row.id, "cache_hit": bool(cached_id), "new_candidates": added},
+                    {
+                        "document_id": row.id,
+                        "cache_hit": bool(cached_id),
+                        "new_candidates": added,
+                        "duplicate_content": duplicate,
+                    },
                 )
-                return {"phase": "FETCH", "document_id": row.id}
+                return {"phase": "FETCH", "document_id": None if duplicate else row.id}
         except (BudgetExhausted, RunCancelled):
             raise
         except ResearchError as exc:
@@ -492,7 +565,7 @@ class ResearchEngine:
                 self.budget,
             )
             for item in result.claims:
-                exists = session.scalar(
+                existing = session.scalars(
                     select(ExtractedClaim).where(
                         ExtractedClaim.run_id == self.run_id,
                         ExtractedClaim.document_id == row.id,
@@ -502,7 +575,7 @@ class ResearchEngine:
                         ExtractedClaim.proposed_scope_quote == item.scope_quote,
                     )
                 )
-                if exists:
+                if any(c.scope == item.scope.model_dump() for c in existing):
                     continue
                 session.add(
                     ExtractedClaim(
@@ -526,6 +599,8 @@ class ResearchEngine:
                     "candidate_count": len(result.claims),
                     "input_truncated": len(row.text) > 30_000,
                     "window_start": window_start,
+                    "question_id": state.get("question_id"),
+                    "source_hash": row.sha256,
                 },
             )
         return {"phase": "EXTRACT", "document_id": document_id}

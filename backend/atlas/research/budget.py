@@ -44,13 +44,16 @@ class Budget:
             session.commit()
             return value
 
-    def model_request(self, requested_tokens: int, live: bool) -> int:
+    def model_request(self, requested_tokens: int, live: bool, input_bytes: int = 0) -> int:
         self.check()
         with self.sessions() as session:
             run = session.get(ResearchRun, self.run_id)
             assert run is not None
             calls = int(run.stats.get("provider_requests", 0))
             reserved = int(run.stats.get("output_tokens_reserved", 0))
+            input_reserved = int(run.stats.get("input_bytes_reserved", 0)) + input_bytes
+            if input_reserved > self.limits.max_input_bytes:
+                raise BudgetExhausted("input_bytes", "Serialized model input byte budget reached")
             if calls >= self.limits.max_model_requests:
                 raise BudgetExhausted("model_requests", "Model request limit reached")
             allocation = min(requested_tokens, self.limits.max_output_tokens - reserved)
@@ -61,6 +64,7 @@ class Budget:
                 "provider_requests": calls + 1,
                 "model_http_requests": int(run.stats.get("model_http_requests", 0)) + int(live),
                 "output_tokens_reserved": reserved + allocation,
+                "input_bytes_reserved": input_reserved,
             }
             session.commit()
             return allocation
