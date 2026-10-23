@@ -1,0 +1,89 @@
+{
+  "external_id": "demo-nordhaven",
+  "title": "AI for Sustainable Systems",
+  "institution": "Nordhaven Institute of Technology",
+  "country": "Sweden",
+  "category": "masters",
+  "summary": "A research-led master\u2019s exploring how machine learning can accelerate a more sustainable world. Includes an interdisciplinary thesis studio.",
+  "subjects": [
+    "Artificial intelligence",
+    "Sustainability"
+  ],
+  "synthetic": true,
+  "sources": [
+    {
+      "id": "demo-handbook",
+      "label": "Synthetic ATLAS demonstration handbook",
+      "kind": "demo",
+      "official_asserted": false
+    }
+  ],
+  "facts": {
+    "funding": {
+      "value": "tuition_and_stipend",
+      "state": "unverified",
+      "source_id": "demo-handbook",
+      "excerpt": "SYNTHETIC EXAMPLE \u2014 funding: tuition_and_stipend."
+    },
+    "deadline": {
+      "value": "2027-01-15",
+      "state": "unverified",
+      "source_id": "demo-handbook",
+      "excerpt": "SYNTHETIC EXAMPLE \u2014 deadline: 2027-01-15."
+    },
+    "language": {
+      "value": "6.5",
+      "state": "unverified",
+      "source_id": "demo-handbook",
+      "excerpt": "SYNTHETIC EXAMPLE \u2014 language: 6.5."
+    },
+    "min_gpa": {
+      "value": "3.0",
+      "state": "unverified",
+      "source_id": "demo-handbook",
+      "excerpt": "SYNTHETIC EXAMPLE \u2014 min gpa: 3.0."
+    },
+    "application_fee": {
+      "value": "0 EUR",
+      "state": "unverified",
+      "source_id": "demo-handbook",
+      "excerpt": "SYNTHETIC EXAMPLE \u2014 application fee: 0 EUR."
+    },
+    "proof_of_funds": {
+      "value": "no",
+      "state": "unverified",
+      "source_id": "demo-handbook",
+      "excerpt": "SYNTHETIC EXAMPLE \u2014 proof of funds: no."
+    },
+    "return_obligation": {
+      "value": "no",
+      "state": "unverified",
+      "source_id": "demo-handbook",
+      "excerpt": "SYNTHETIC EXAMPLE \u2014 return obligation: no."
+    },
+    "eligible_nationalities": {
+      "value": "all",
+      "state": "unverified",
+      "source_id": "demo-handbook",
+      "excerpt": "SYNTHETIC EXAMPLE \u2014 eligible nationalities: all."
+    },
+    "required_degree": {
+      "value": "bachelor",
+      "state": "unverified",
+      "source_id": "demo-handbook",
+      "excerpt": "SYNTHETIC EXAMPLE \u2014 required degree: bachelor."
+    },
+    "tuition": {
+      "value": "Full tuition covered in this synthetic example",
+      "state": "unverified",
+      "source_id": "demo-handbook",
+      "excerpt": "SYNTHETIC EXAMPLE \u2014 tuition: Full tuition covered in this synthetic example."
+    },
+    "stipend": {
+      "value": "Monthly living allowance; amount not specified in the demo",
+      "state": "unverified",
+      "source_id": "demo-handbook",
+      "excerpt": "SYNTHETIC EXAMPLE \u2014 stipend: Monthly living allowance; amount not specified in the demo."
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "funding_gap": {
+    "claims": [
+      [
+        "program",
+        "institution",
+        "Lumen Institute"
+      ],
+      [
+        "program",
+        "program",
+        "Lumen AI Master's"
+      ],
+      [
+        "program",
+        "degree",
+        "Master of Science"
+      ],
+      [
+        "program",
+        "intake_year",
+        "2027"
+      ],
+      [
+        "program",
+        "tuition_funding",
+        "full tuition"
+      ],
+      [
+        "program",
+        "living_stipend",
+        "monthly living allowance of KRW 900,000"
+      ],
+      [
+        "program",
+        "deadline",
+        "2027-02-15"
+      ],
+      [
+        "program",
+        "language",
+        "English, IELTS 6.5"
+      ],
+      [
+        "program",
+        "eligibility",
+        "international applicants with a bachelor's degree"
+      ],
+      [
+        "award",
+        "tuition_funding",
+        "full tuition"
+      ],
+      [
+        "award",
+        "deadline",
+        "2027-02-15"
+      ],
+      [
+        "award",
+        "proof_of_funds",
+        "not required"
+      ],
+      [
+        "award",
+        "application_fee",
+        "0 KRW"
+      ],
+      [
+        "award",
+        "scholarship_obligations",
+        "annual academic progress review"
+      ]
+    ],
+    "conflict_fields": [],
+    "unknown_fields": []
+  },
+  "conflict": {
+    "claims": [
+      [
+        "program",
+        "institution",
+        "Lumen Institute"
+      ],
+      [
+        "program",
+        "program",
+        "Lumen AI Master's"
+      ],
+      [
+        "program",
+        "degree",
+        "Master of Science"
+      ],
+      [
+        "program",
+        "intake_year",
+        "2027"
+      ],
+      [
+        "program",
+        "tuition_funding",
+        "full tuition"
+      ],
+      [
+        "program",
+        "living_stipend",
+        "monthly living allowance of KRW 900,000"
+      ],
+      [
+        "program",
+        "deadline",
+        "2027-02-15"
+      ],
+      [
+        "program",
+        "language",
+        "English, IELTS 6.5"
+      ],
+      [
+        "program",
+        "eligibility",
+        "international applicants with a bachelor's degree"
+      ],
+      [
+        "award",
+        "tuition_funding",
+        "tuition not covered"
+      ],
+      [
+        "award",
+        "deadline",
+        "2027-03-01"
+      ],
+      [
+        "award",
+        "proof_of_funds",
+        "required"
+      ]
+    ],
+    "conflict_fields": [
+      "tuition_funding",
+      "deadline"
+    ],
+    "unknown_fields": []
+  },
+  "insufficient": {
+    "claims": [
+      [
+        "program",
+        "institution",
+        "Lumen Institute"
+      ],
+      [
+        "program",
+        "program",
+        "Lumen AI Master's"
+      ],
+      [
+        "program",
+        "degree",
+        "Master of Science"
+      ],
+      [
+        "program",
+        "intake_year",
+        "2027"
+      ],
+      [
+        "program",
+        "tuition_funding",
+        "full tuition"
+      ],
+      [
+        "program",
+        "living_stipend",
+        "monthly living allowance of KRW 900,000"
+      ],
+      [
+        "program",
+        "deadline",
+        "2027-02-15"
+      ],
+      [
+        "program",
+        "language",
+        "English, IELTS 6.5"
+      ],
+      [
+        "program",
+        "eligibility",
+        "international applicants with a bachelor's degree"
+      ]
+    ],
+    "conflict_fields": [],
+    "unknown_fields": [
+      "proof_of_funds"
+    ]
+  }
+}

@@ -1,0 +1,466 @@
+{
+  "opportunities": [
+    {
+      "external_id": "demo-nordhaven",
+      "title": "AI for Sustainable Systems",
+      "institution": "Nordhaven Institute of Technology",
+      "country": "Sweden",
+      "category": "masters",
+      "summary": "A research-led master\u2019s exploring how machine learning can accelerate a more sustainable world. Includes an interdisciplinary thesis studio.",
+      "subjects": [
+        "Artificial intelligence",
+        "Sustainability"
+      ],
+      "synthetic": true,
+      "sources": [
+        {
+          "id": "demo-handbook",
+          "label": "Synthetic ATLAS demonstration handbook",
+          "kind": "demo",
+          "official_asserted": false
+        }
+      ],
+      "facts": {
+        "funding": {
+          "value": "tuition_and_stipend",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 funding: tuition_and_stipend."
+        },
+        "deadline": {
+          "value": "2027-01-15",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 deadline: 2027-01-15."
+        },
+        "language": {
+          "value": "6.5",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 language: 6.5."
+        },
+        "min_gpa": {
+          "value": "3.0",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 min gpa: 3.0."
+        },
+        "application_fee": {
+          "value": "0 EUR",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 application fee: 0 EUR."
+        },
+        "proof_of_funds": {
+          "value": "no",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 proof of funds: no."
+        },
+        "return_obligation": {
+          "value": "no",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 return obligation: no."
+        },
+        "eligible_nationalities": {
+          "value": "all",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 eligible nationalities: all."
+        },
+        "required_degree": {
+          "value": "bachelor",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 required degree: bachelor."
+        },
+        "tuition": {
+          "value": "Full tuition covered in this synthetic example",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 tuition: Full tuition covered in this synthetic example."
+        },
+        "stipend": {
+          "value": "Monthly living allowance; amount not specified in the demo",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 stipend: Monthly living allowance; amount not specified in the demo."
+        }
+      }
+    },
+    {
+      "external_id": "demo-rhine",
+      "title": "Computational Science Fellowship",
+      "institution": "Rhine School of Advanced Studies",
+      "country": "Germany",
+      "category": "masters",
+      "summary": "Build strong foundations in scientific computing and join a collaborative research lab. A fictional fellowship designed to demonstrate evidence review.",
+      "subjects": [
+        "Computer science",
+        "Research"
+      ],
+      "synthetic": true,
+      "sources": [
+        {
+          "id": "demo-handbook",
+          "label": "Synthetic ATLAS demonstration handbook",
+          "kind": "demo",
+          "official_asserted": false
+        }
+      ],
+      "facts": {
+        "funding": {
+          "value": "tuition_and_stipend",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 funding: tuition_and_stipend."
+        },
+        "deadline": {
+          "value": "2027-02-28",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 deadline: 2027-02-28."
+        },
+        "language": {
+          "value": "6.5",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 language: 6.5."
+        },
+        "min_gpa": {
+          "value": "3.2",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 min gpa: 3.2."
+        },
+        "application_fee": {
+          "value": "0 EUR",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 application fee: 0 EUR."
+        },
+        "return_obligation": {
+          "value": "no",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 return obligation: no."
+        },
+        "eligible_nationalities": {
+          "value": "all",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 eligible nationalities: all."
+        },
+        "required_degree": {
+          "value": "bachelor",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 required degree: bachelor."
+        },
+        "tuition": {
+          "value": "Full tuition covered in this synthetic example",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 tuition: Full tuition covered in this synthetic example."
+        },
+        "stipend": {
+          "value": "Monthly living allowance; amount not specified in the demo",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 stipend: Monthly living allowance; amount not specified in the demo."
+        }
+      }
+    },
+    {
+      "external_id": "demo-aoba",
+      "title": "Intelligent Robotics Scholarship",
+      "institution": "Aoba Graduate Institute",
+      "country": "Japan",
+      "category": "masters",
+      "summary": "An interdisciplinary robotics master\u2019s combining perception, autonomy, and responsible engineering. Review the example return obligation before shortlisting.",
+      "subjects": [
+        "Robotics",
+        "Artificial intelligence"
+      ],
+      "synthetic": true,
+      "sources": [
+        {
+          "id": "demo-handbook",
+          "label": "Synthetic ATLAS demonstration handbook",
+          "kind": "demo",
+          "official_asserted": false
+        }
+      ],
+      "facts": {
+        "funding": {
+          "value": "tuition_and_stipend",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 funding: tuition_and_stipend."
+        },
+        "deadline": {
+          "value": "2027-03-10",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 deadline: 2027-03-10."
+        },
+        "language": {
+          "value": "6.0",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 language: 6.0."
+        },
+        "min_gpa": {
+          "value": "3.0",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 min gpa: 3.0."
+        },
+        "application_fee": {
+          "value": "35 USD",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 application fee: 35 USD."
+        },
+        "proof_of_funds": {
+          "value": "yes",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 proof of funds: yes."
+        },
+        "return_obligation": {
+          "value": "yes",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 return obligation: yes."
+        },
+        "eligible_nationalities": {
+          "value": "all",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 eligible nationalities: all."
+        },
+        "required_degree": {
+          "value": "bachelor",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 required degree: bachelor."
+        },
+        "tuition": {
+          "value": "Full tuition covered in this synthetic example",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 tuition: Full tuition covered in this synthetic example."
+        },
+        "stipend": {
+          "value": "Monthly living allowance; amount not specified in the demo",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 stipend: Monthly living allowance; amount not specified in the demo."
+        }
+      }
+    },
+    {
+      "external_id": "demo-canal",
+      "title": "Human-Centered Data Science",
+      "institution": "Canal University of Design",
+      "country": "Netherlands",
+      "category": "masters",
+      "summary": "Study the intersection of data science, interaction design, and public life. This example covers tuition only; living expenses are not funded.",
+      "subjects": [
+        "Data science",
+        "Design"
+      ],
+      "synthetic": true,
+      "sources": [
+        {
+          "id": "demo-handbook",
+          "label": "Synthetic ATLAS demonstration handbook",
+          "kind": "demo",
+          "official_asserted": false
+        }
+      ],
+      "facts": {
+        "funding": {
+          "value": "tuition_only",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 funding: tuition_only."
+        },
+        "deadline": {
+          "value": "2027-04-01",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 deadline: 2027-04-01."
+        },
+        "language": {
+          "value": "7.0",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 language: 7.0."
+        },
+        "application_fee": {
+          "value": "100 EUR",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 application fee: 100 EUR."
+        },
+        "proof_of_funds": {
+          "value": "yes",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 proof of funds: yes."
+        },
+        "eligible_nationalities": {
+          "value": "all",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 eligible nationalities: all."
+        },
+        "required_degree": {
+          "value": "bachelor",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 required degree: bachelor."
+        },
+        "tuition": {
+          "value": "Full tuition in this synthetic example; living costs excluded",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 tuition: Full tuition in this synthetic example; living costs excluded."
+        }
+      }
+    },
+    {
+      "external_id": "demo-cedar",
+      "title": "Open Research in Computing",
+      "institution": "Cedar Valley University",
+      "country": "Canada",
+      "category": "masters",
+      "summary": "A thesis-based computing program with research across open systems and human-centered AI. Funding details are deliberately unknown in this demonstration.",
+      "subjects": [
+        "Computer science",
+        "Research"
+      ],
+      "synthetic": true,
+      "sources": [
+        {
+          "id": "demo-handbook",
+          "label": "Synthetic ATLAS demonstration handbook",
+          "kind": "demo",
+          "official_asserted": false
+        }
+      ],
+      "facts": {
+        "deadline": {
+          "value": "2027-02-01",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 deadline: 2027-02-01."
+        },
+        "language": {
+          "value": "6.5",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 language: 6.5."
+        },
+        "min_gpa": {
+          "value": "3.3",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 min gpa: 3.3."
+        },
+        "eligible_nationalities": {
+          "value": "all",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 eligible nationalities: all."
+        },
+        "required_degree": {
+          "value": "bachelor",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 required degree: bachelor."
+        }
+      }
+    },
+    {
+      "external_id": "demo-meridian",
+      "title": "Responsible AI & Public Policy",
+      "institution": "Meridian School of Policy",
+      "country": "United Kingdom",
+      "category": "masters",
+      "summary": "Connect technical AI methods with public policy and governance. This synthetic award provides partial support, with remaining costs requiring independent funding.",
+      "subjects": [
+        "Artificial intelligence",
+        "Public policy"
+      ],
+      "synthetic": true,
+      "sources": [
+        {
+          "id": "demo-handbook",
+          "label": "Synthetic ATLAS demonstration handbook",
+          "kind": "demo",
+          "official_asserted": false
+        }
+      ],
+      "facts": {
+        "funding": {
+          "value": "partial",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 funding: partial."
+        },
+        "deadline": {
+          "value": "2027-01-31",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 deadline: 2027-01-31."
+        },
+        "language": {
+          "value": "7.0",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 language: 7.0."
+        },
+        "min_gpa": {
+          "value": "3.5",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 min gpa: 3.5."
+        },
+        "application_fee": {
+          "value": "60 GBP",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 application fee: 60 GBP."
+        },
+        "proof_of_funds": {
+          "value": "yes",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 proof of funds: yes."
+        },
+        "return_obligation": {
+          "value": "no",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 return obligation: no."
+        },
+        "eligible_nationalities": {
+          "value": "all",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 eligible nationalities: all."
+        },
+        "required_degree": {
+          "value": "bachelor",
+          "state": "unverified",
+          "source_id": "demo-handbook",
+          "excerpt": "SYNTHETIC EXAMPLE \u2014 required degree: bachelor."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "synthetic": false,
+  "provenance": "UNANNOTATED TEMPLATE ONLY. No authentic source has been captured. Replace every snapshot/hash/date placeholder after a permitted retrieval.",
+  "cases": [
+    {
+      "id": "erasmus-overview",
+      "objective": "Investigate what the official Erasmus Mundus overview establishes about master's funding and application deadlines, without inventing program-specific conditions.",
+      "documents": [
+        {
+          "id": "overview",
+          "url": "https://erasmus-plus.ec.europa.eu/opportunities/opportunities-for-individuals/students/erasmus-mundus-joint-masters",
+          "path": "REPLACE_WITH_CAPTURED_SNAPSHOT.html",
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "media_type": "text/html",
+          "retrieved_at": "REPLACE_WITH_ACTUAL_RETRIEVAL_TIMESTAMP",
+          "source_owner": "European Commission (reviewer must confirm)",
+          "reuse_note": "Confirm current source reuse terms and third-party exclusions before distributing captured content."
+        }
+      ],
+      "supplied_document_id": "overview",
+      "retrieval_document_ids": ["overview"],
+      "plan": {
+        "questions": [
+          {
+            "id": "q1",
+            "question": "What funding and deadline information is actually established?",
+            "fields": ["tuition_funding", "living_stipend", "deadline"],
+            "completion_criterion": "Cite explicit applicable statements; leave missing program-specific rules unknown."
+          }
+        ],
+        "constraints": ["A general overview does not establish every program's eligibility, funding or deadline."],
+        "search_tasks": [],
+        "completion_criteria": ["Each requested field has evidence or an explicit unknown."]
+      },
+      "labels": null
+    }
+  ]
+}
