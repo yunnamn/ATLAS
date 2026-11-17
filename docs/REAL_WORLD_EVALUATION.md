@@ -1,8 +1,8 @@
-# Task 3: evidence quality, experiments and human approval
+# Evidence quality, comparative evaluation, and human approval
 
 ## What this milestone establishes
 
-Task 2's single LangGraph and real OpenAI-compatible integration are retained. Task 3 adds evidence sufficiency, scoped comparisons, conservative semantic screening, duplicate-work controls, reproducible comparison infrastructure and human-approved knowledge integration.
+The research engine combines a conditional LangGraph and configurable OpenAI-compatible integration with evidence sufficiency checks, scoped comparisons, conservative semantic screening, duplicate-work controls, reproducible comparison infrastructure, and human-approved knowledge integration.
 
 **No actual LLM was available or used.** The user's offline preference remains in effect. No independently reviewed authentic reference corpus was supplied. The one official Erasmus Mundus page capture attempted on October 23, 2026 failed with `dns_failed`; [real-source-capture.json](real-source-capture.json) records that actual result. No source bytes were obtained and no alternative transport bypass was attempted. Do not describe this release as experimentally validated real-world autonomy.
 
@@ -20,7 +20,7 @@ The core app, real provider protocol, graph, persistence, screening, comparison 
 
 ## Support assessment contract
 
-Migration `0003` adds a JSON assessment to each new claim, independently of exact evidence IDs. Legacy claims get `{}`; frozen Task 2 reports are preserved.
+Migration `0003` adds a JSON assessment to each new claim, independently of exact evidence IDs. Legacy claims get `{}`; existing reports are preserved.
 
 | Label | Meaning of this implementation |
 | --- | --- |
@@ -80,7 +80,7 @@ cd backend
 .venv/bin/python -m atlas.research.benchmark --output ../docs/benchmark-results.json
 ```
 
-Actual comparison output and interpretation: [TASK3_RESULTS.md](TASK3_RESULTS.md). The second command performs nine tiny synthetic runs and 18 authored semantic controls, using temporary databases. It does not modify your opportunity library or invoke a model/source service.
+Actual comparison output and interpretation: [RESEARCH_EVALUATION_RESULTS.md](RESEARCH_EVALUATION_RESULTS.md). The second command performs nine tiny synthetic runs and 18 authored semantic controls, using temporary databases. It does not modify your opportunity library or invoke a model/source service.
 
 One explicit source capture, only in a runtime with approved public DNS/direct egress:
 
@@ -91,7 +91,7 @@ cd backend
   --capture-dir data/corpus --output data/capture-result.json
 ```
 
-This honors the same robots, scope, pinning, size/type/time and access policy as live research. A blocked capture exits nonzero and records the reason. The current cloud instance failed at DNS; changing to an unpinned/proxy client is not an acceptable fix.
+This honors the same robots, scope, pinning, size/type/time and access policy as live research. A blocked capture exits nonzero and records the reason. The recorded source capture failed at DNS resolution; switching to an unpinned or policy-bypassing client is not an acceptable workaround.
 
 ## Connect an approved model
 
@@ -125,7 +125,7 @@ Only conflict-free findings with a fully supported rule assessment can be propos
 
 Institution/program/destination identity is explicitly supplied by the reviewer. Funding facts map conservatively to tuition/stipend, ISO deadlines, fees and explicit proof-of-funds rules. Original eligibility, language and scholarship-obligation wording now has dedicated fact keys. No aggregate fully-funded status, IELTS score, nationality list or return-obligation boolean is guessed from complex prose. Unselected/unmapped facts remain unknown. Source authority remains unasserted unless separately reviewed. `verified` means a local declared human review, not authenticated truth or reviewer identity.
 
-## Remaining Task 4 priorities
+## Remaining research priorities
 
 1. Obtain an approved model/runtime and several legally usable official HTML/PDF snapshots. Build a blinded, independently annotated corpus and execute repeated A/B/C trials; measure semantic entailment, scope, citation attribution, conflicts, coverage and real cost/failure behavior.
 2. Improve document-section/applicant-condition interpretation against held-out errors, compare an optional independent verifier with human labels, and calibrate uncertainty. Extend beyond English heuristics without treating an LLM judge as ground truth.

@@ -1,6 +1,6 @@
-# Task 3 measured results
+# Research engine evaluation results
 
-Executed on October 23, 2026 in the prepared Linux environment. These are tiny **synthetic engineering controls**, not real-model or real-document accuracy results. No actual model requests were made. Raw outputs, hashes, prediction spans, decision traces, usage availability and measured latencies are in [benchmark-results.json](benchmark-results.json).
+Evaluated on October 23, 2026 in a Linux development environment. These are tiny **synthetic engineering controls**, not real-model or real-document accuracy results. No actual model requests were made. Raw outputs, hashes, prediction spans, decision traces, usage availability and measured latencies are in [benchmark-results.json](benchmark-results.json).
 
 ## A/B/C controls
 
@@ -33,10 +33,10 @@ Actual model calls and billed model cost: zero. Model input/output token usage: 
 - Final backend: **153 tests passed**; Ruff lint/format and mypy passed (31 application files).
 - Final frontend: **10 unit tests and 18 browser/accessibility tests passed**; TypeScript, ESLint, Prettier and production build passed.
 - Setup script repeated successfully with locked dependencies; existing six demo IDs skipped. Alembic head is 0003 and schema drift check passed.
-- Every original row/column in 14 existing tables was compared with the pre-Task 3 SQLite backup and preserved. Tests also upgrade a Task 2 database containing source bytes/claims without altering its old columns.
+- Every original row/column in 14 existing tables was compared with the pre-upgrade SQLite backup and preserved. Tests also upgrade an earlier-schema database containing source bytes/claims without altering its old columns.
 
 ## Authentic evaluation remains blocked
 
 The approved single-page Erasmus Mundus capture failed at public DNS resolution before source bytes were retrieved. [real-source-capture.json](real-source-capture.json) preserves the failure. The runtime has restricted egress and no approved model endpoint; the pinning/robots transport was not bypassed. There is no independently reviewed authentic reference set. Real semantic accuracy, model tool-choice utility, real-site/PDF retrieval, provider costs, model latency and failure-recovery time remain unmeasured.
 
-[REAL_WORLD_EVALUATION.md](REAL_WORLD_EVALUATION.md) describes corpus provenance, annotation/reconciliation rules, withheld metrics, reproduction commands, approved model setup and Task 4 priorities. A general Erasmus overview also cannot establish program-specific awards; do not turn missing program/intake context into manufactured scholarship facts.
+[REAL_WORLD_EVALUATION.md](REAL_WORLD_EVALUATION.md) describes corpus provenance, annotation/reconciliation rules, withheld metrics, reproduction commands, approved model setup and future research priorities. A general Erasmus overview also cannot establish program-specific awards; do not turn missing program/intake context into manufactured scholarship facts.

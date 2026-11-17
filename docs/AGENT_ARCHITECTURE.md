@@ -1,8 +1,8 @@
 # ATLAS research agent engine
 
-Task 2 extends the existing application. The opportunity directory, profile/matching, shortlist, manual imports, and human review history remain separate and operational. Research is not automatically promoted into reviewed opportunities.
+The research engine extends the opportunity directory, profile/matching, shortlist, manual imports, and human review history. These features remain separate and operational. Research is not automatically promoted into reviewed opportunities.
 
-Task 3 extends this design without replacing the graph. See [REAL_WORLD_EVALUATION.md](REAL_WORLD_EVALUATION.md) for support screening, bounded observations, scope comparisons, A/B/C methodology, annotation gates and transactional human approval. Actual measurements and unresolved live prerequisites are in [TASK3_RESULTS.md](TASK3_RESULTS.md).
+Evidence-quality and human-review controls extend the engine without replacing the graph. See [REAL_WORLD_EVALUATION.md](REAL_WORLD_EVALUATION.md) for support screening, bounded observations, scope comparisons, A/B/C methodology, annotation gates and transactional human approval. Actual measurements and unresolved live prerequisites are in [RESEARCH_EVALUATION_RESULTS.md](RESEARCH_EVALUATION_RESULTS.md).
 
 ## Execution and decisions
 
@@ -35,7 +35,7 @@ The executive summary is an evidence-count synthesis, not uncited model prose. R
 
 ## What is genuinely model-driven
 
-`OpenAICompatibleProvider` implements real POST requests to the administrator-configured `/chat/completions` endpoint. The model creates the plan, extracts candidates, selects tools, chooses text windows/questions, revises the plan and decides when to stop. This path is tested against a controlled HTTP endpoint. A real model endpoint was not available/used during this implementation, and the user selected offline verification. Actual live planning quality, research strategy quality, and real-site connectivity remain **unverified**.
+`OpenAICompatibleProvider` implements real POST requests to the administrator-configured `/chat/completions` endpoint. The model creates the plan, extracts candidates, selects tools, chooses text windows/questions, revises the plan and decides when to stop. This path is tested against a controlled HTTP endpoint. Development and verification used offline fixtures; no real model endpoint was invoked. Actual live planning quality, research strategy quality, and real-site connectivity remain **unverified**.
 
 The **offline demo** explicitly uses `DemoProvider` and `DemoFetcher`: deterministic decisions over fictional bundled documents. The first document omits proof-of-funds information; the new evidence exposes a handbook link; the next decision investigates it and revises the plan. Alternative scenarios retain conflicts or an unknown. This exercises the graph and persistence, but is not autonomous LLM research and does not establish facts about a real program.
 
@@ -43,7 +43,7 @@ The default behavior never silently substitutes demo results after a live provid
 
 ## Stored state and evidence
 
-Migration `0002` only adds research tables; it does not rewrite Task 1 tables/data.
+Migration `0002` adds research tables without rewriting earlier directory tables or data.
 
 | Table | Purpose |
 | --- | --- |
@@ -71,7 +71,7 @@ Short-term run state and events are separate from reusable document versions. Wi
 - **contradictory**: supported same-program/same-intake claims have conflicting conservative values. Both remain cited; no winner is chosen automatically. Different intakes/currencies are not compared as though equivalent.
 - **unknown**: a required plan field lacks supported evidence. Unknowns are report entries, not invented claims.
 
-Comparisons support a small exact vocabulary for tuition coverage and proof of funds, ISO deadlines, and same-currency numeric application fees. Task 3 adds explicitly cited award tracks, applicant groups and source versions. Differences in these dimensions and changed same-URL versions are contextual differences; no newer source wins automatically. Complex conditional prose may contain unresolved differences that are not automatically labeled contradictory. Human source/context review remains required. Five semantic labels use conservative English context rules, not general entailment or independently verified truth.
+Comparisons support a small exact vocabulary for tuition coverage and proof of funds, ISO deadlines, and same-currency numeric application fees. Additional context dimensions include explicitly cited award tracks, applicant groups and source versions. Differences in these dimensions and changed same-URL versions are contextual differences; no newer source wins automatically. Complex conditional prose may contain unresolved differences that are not automatically labeled contradictory. Human source/context review remains required. Five semantic labels use conservative English context rules, not general entailment or independently verified truth.
 
 ## Worker and budgets
 
@@ -159,4 +159,4 @@ Replace the example URL/objective with an accessible, approved real source. The 
 
 ## Next engineering milestone
 
-Task 4 should obtain approved live model/site connectivity and an independently reviewed authentic reference corpus, then execute repeated A/B/C trials and improve general semantic/section/condition handling against held-out errors. Source diffs and a durable job queue with idempotent, explicitly authorized resumption remain future work. Authentication and stronger parser isolation are prerequisites for public hosting.
+Future work should establish approved live model/site connectivity and an independently reviewed authentic reference corpus, then execute repeated A/B/C trials and improve general semantic/section/condition handling against held-out errors. Source diffs and a durable job queue with idempotent, explicitly authorized resumption remain future work. Authentication and stronger parser isolation are prerequisites for public hosting.
