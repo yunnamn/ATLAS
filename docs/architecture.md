@@ -1,8 +1,8 @@
 # Architecture and trust boundaries
 
-This document describes the Task 1 manual opportunity workflow. Task 2 adds a separate research engine: see [AGENT_ARCHITECTURE.md](AGENT_ARCHITECTURE.md), [THREAT_MODEL.md](THREAT_MODEL.md), and [EVALUATION.md](EVALUATION.md). Research artifacts do not silently update reviewed opportunities.
+This document describes the manual opportunity workflow. A separate research engine is documented in: see [AGENT_ARCHITECTURE.md](AGENT_ARCHITECTURE.md), [THREAT_MODEL.md](THREAT_MODEL.md), and [EVALUATION.md](EVALUATION.md). Research artifacts do not silently update reviewed opportunities.
 
-Task 3 adds an explicit proposal/approval bridge: [REAL_WORLD_EVALUATION.md](REAL_WORLD_EVALUATION.md). Proposal creation is isolated from directory writes; only selected, reviewed changes commit with evidence and optimistic revision checks. Original-text eligibility, language and obligation fields remain separate from the numeric matching rules.
+The research workflow includes an explicit proposal/approval bridge: [REAL_WORLD_EVALUATION.md](REAL_WORLD_EVALUATION.md). Proposal creation is isolated from directory writes; only selected, reviewed changes commit with evidence and optimistic revision checks. Original-text eligibility, language and obligation fields remain separate from the numeric matching rules.
 
 ## Request flow
 
