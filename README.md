@@ -124,7 +124,7 @@ CI is defined in `.github/workflows/checks.yml`. See [verification notes](docs/v
 - **Manual extraction service**: the original deterministic PDF/text import workflow remains available without a model.
 - **Matching service**: deterministic rules and visible explanations. Source content never becomes executable instructions.
 
-See the [data architecture](docs/architecture.md), [research engine architecture](docs/AGENT_ARCHITECTURE.md), and [security model](docs/THREAT_MODEL.md).
+See the [data architecture](docs/architecture.md), [research engine architecture](docs/AGENT_ARCHITECTURE.md), [security model](docs/THREAT_MODEL.md), and [development roadmap](docs/ROADMAP.md).
 
 This release is a **single-user, loopback-only development application**, with no authentication, multi-user isolation, scheduled jobs, or hosted deployment. It is intended for small personal libraries; directory views show up to 100 records and some filters scan loaded database records. The API supports limit/offset pagination. Original PDFs from manual import are not retained; hashes and extracted excerpts are. The Research Agent separately retains versioned raw/normalized source snapshots. Reopen the original document when verifying. Scanned PDFs need OCR, which is not included.
 
