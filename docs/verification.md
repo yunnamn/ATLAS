@@ -1,6 +1,6 @@
 # Verification record
 
-Observed in the prepared Linux cloud environment on October 23, 2026, with Python 3.12.14, Node 24.19.0, npm 11.9.0, and system Chromium. These results describe this implementation and current instance, not a published snapshot or a validated deployment.
+Observed in a Linux development environment on October 23, 2026, with Python 3.12.14, Node 24.19.0, npm 11.9.0, and system Chromium. These results describe this implementation and current instance, not a published snapshot or a validated deployment.
 
 | Check | Observed result |
 | --- | --- |
