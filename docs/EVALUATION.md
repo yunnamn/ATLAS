@@ -1,18 +1,18 @@
-# Task 2 evaluation
+# Research engine baseline evaluation
 
-This is the preserved Task 2 baseline record. Task 3 results, A/B/C controls and current limits are documented in [TASK3_RESULTS.md](TASK3_RESULTS.md) and [REAL_WORLD_EVALUATION.md](REAL_WORLD_EVALUATION.md). No authentic, independently annotated real-model benchmark has been completed.
+This document records the original research-engine evaluation baseline. Subsequent A/B/C controls and current limitations are documented in [RESEARCH_EVALUATION_RESULTS.md](RESEARCH_EVALUATION_RESULTS.md) and [REAL_WORLD_EVALUATION.md](REAL_WORLD_EVALUATION.md). No authentic, independently annotated real-model benchmark has been completed.
 
 ## Scope and provenance of results
 
-All results below were executed locally against the implementation. The user selected **offline demo for now**; no actual model endpoint, paid service, real website investigation, broad search backend or real research claims were used. A functioning OpenAI-compatible adapter exists and is exercised with a controlled HTTP model fixture. Real LLM planning/tool selection/extraction quality and direct real-site source retrieval are **unverified acceptance criteria**.
+All results below were executed locally against the implementation. The evaluation used the **offline demo** configuration; no actual model endpoint, paid service, real website investigation, broad search backend or real research claims were used. A functioning OpenAI-compatible adapter exists and is exercised with a controlled HTTP model fixture. Real LLM planning/tool selection/extraction quality and direct real-site source retrieval are **unverified acceptance criteria**.
 
 The default demo is labeled synthetic in the API, source documents, reports and interface. It runs the actual conditional LangGraph, persistence, verification and reporting code with deterministic fixture decisions. Passing fixture scores must not be described as an AI research-quality benchmark.
 
 ## Baseline and regression
 
-Before Task 2 changes: 31 backend tests, 8 frontend unit tests, backend Ruff/mypy/Alembic drift checks, frontend type/lint and build passed. Browser baseline was 10/11: rapid filter changes could retain a stale query/destination because React Router transitions lagged the next event. The directory now reads the latest browser URL at input-event time; the unchanged original end-to-end scenario passes. Existing source files and SQLite data were preserved on `feature/research-agent-engine`.
+Before the research-engine extension: 31 backend tests, 8 frontend unit tests, backend Ruff/mypy/Alembic drift checks, frontend type/lint and build passed. Browser baseline was 10/11: rapid filter changes could retain a stale query/destination because React Router transitions lagged the next event. The directory now reads the latest browser URL at input-event time; the unchanged original end-to-end scenario passes. Existing source files and SQLite data were preserved on `feature/research-agent-engine`.
 
-The Task 2 migration is additive. Tests migrate an actual Task 1 database with opportunities/application notes from `0001` to `0002` and compare the records. A backup of the current development DB was also made outside the checkout before migration; current-row equality is checked during handoff. Regression tests do not run workers against the user's development database.
+The research schema migration is additive. Tests migrate an existing directory database with opportunities/application notes from `0001` to `0002` and compare the records. A backup of the current development DB was also made outside the checkout before migration; current-row equality is checked during validation. Regression tests do not run workers against the user's development database.
 
 ## Reproduce
 
@@ -40,7 +40,7 @@ Tests and evaluation are offline with respect to model/source services. Installi
 
 ## Executed results
 
-- Backend: **105 tests passed**, including Task 1 regressions. Ruff and mypy passed.
+- Backend: **105 tests passed**, including directory-feature regressions. Ruff and mypy passed.
 - Frontend: **10 unit tests passed**; TypeScript/ESLint and production build passed.
 - Browser/accessibility: **16 tests passed**. This includes all prior screens, the new workspace, native citation modal, saved-run reload, conflicts, unknowns on mobile, and disabled unconfigured live mode. Automated axe checks passed for the tested states. This does not establish full accessibility conformance or replace assistive-technology testing.
 - Reproducible scenario evaluation: **3/3 completed**, with one complete and two deliberately partial reports. See [evaluation-results.json](evaluation-results.json) for the actual machine-readable output.
@@ -75,4 +75,4 @@ Security tests cover URL schemes/ports/userinfo/traversal, metadata and loopback
 
 ## Next evaluation work
 
-Task 3 should use a larger human-labeled set of real official documents across languages, award tracks, changing intakes, conditional eligibility and contradictory sources. Measure semantic entailment/context completeness, false corroboration, scoped conflict precision/recall, objective coverage, tool-choice utility, time/cost, and injection resistance with explicitly approved live models. Record model/version/settings and corpus provenance; do not extrapolate the current fixture scores.
+Future evaluation should use a larger human-labeled set of real official documents across languages, award tracks, changing intakes, conditional eligibility and contradictory sources. Measure semantic entailment/context completeness, false corroboration, scoped conflict precision/recall, objective coverage, tool-choice utility, time/cost, and injection resistance with explicitly approved live models. Record model/version/settings and corpus provenance; do not extrapolate the current fixture scores.
