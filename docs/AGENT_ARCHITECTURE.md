@@ -35,7 +35,7 @@ The executive summary is an evidence-count synthesis, not uncited model prose. R
 
 ## What is genuinely model-driven
 
-`OpenAICompatibleProvider` implements real POST requests to the administrator-configured `/chat/completions` endpoint. The model creates the plan, extracts candidates, selects tools, chooses text windows/questions, revises the plan and decides when to stop. This path is tested against a controlled HTTP endpoint. A real model endpoint was not available/used during this implementation, and the user selected offline verification. Actual live planning quality, research strategy quality, and real-site connectivity remain **unverified**.
+`OpenAICompatibleProvider` implements real POST requests to the administrator-configured `/chat/completions` endpoint. The model creates the plan, extracts candidates, selects tools, chooses text windows/questions, revises the plan and decides when to stop. This path is tested against a controlled HTTP endpoint. Development and verification used offline fixtures; no real model endpoint was invoked. Actual live planning quality, research strategy quality, and real-site connectivity remain **unverified**.
 
 The **offline demo** explicitly uses `DemoProvider` and `DemoFetcher`: deterministic decisions over fictional bundled documents. The first document omits proof-of-funds information; the new evidence exposes a handbook link; the next decision investigates it and revises the plan. Alternative scenarios retain conflicts or an unknown. This exercises the graph and persistence, but is not autonomous LLM research and does not establish facts about a real program.
 
